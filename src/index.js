@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import './style.css';
-import Product from './product.js';
 import Card from './card.js';
 
-let card = new Card('My card');
+let card = new Card('My card','My card description');
 console.log(card.title);
+console.log(card.description);
