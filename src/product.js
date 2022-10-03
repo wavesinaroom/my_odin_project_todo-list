@@ -5,9 +5,9 @@ export default class Product {
   editTitle(title){
     this.title = title;  
   }
-  destroyProduct(){
+  destroy(){
     for(const key in this){
       delete this[key];
-    }
+   }
   }
 }
