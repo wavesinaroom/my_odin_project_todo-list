@@ -22,4 +22,9 @@ export default class Card extends Product{
     this.checklist = new Map();
     this.listName = listName; 
   }
+
+  static clone(other){
+    return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
+  }
+
 }
