@@ -1,9 +1,21 @@
 import Product from "./product";
 
+const PRIORITY={
+  DEFAULT: 'default',
+  LOW: 'low',
+  MID: 'mid',
+  HIGH: 'high'
+};
+
 export default class Card extends Product{
-  constructor(title, description, dueDate){
+
+  static get PRIORITY(){
+    return PRIORITY;
+  }
+  constructor(title,description,dueDate, priority){
     super(title);
     this.description = description;
     this.dueDate = new Date(dueDate); //use it when inputting from html https://stackoverflow.com/questions/28760254/assign-javascript-date-to-html5-datetime-local-input
+    this.priority = priority;
   }
 }
