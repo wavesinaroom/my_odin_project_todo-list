@@ -27,4 +27,5 @@ export default class Card extends Product{
     return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
   }
 
+
 }
