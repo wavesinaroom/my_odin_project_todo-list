@@ -9,6 +9,7 @@ const PRIORITY={
 
 export default class Card extends Product{
 
+  static draggedCard;
   static get PRIORITY(){
     return PRIORITY;
   }
