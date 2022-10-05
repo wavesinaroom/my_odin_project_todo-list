@@ -11,5 +11,8 @@ console.log(card.description);
 todoList.addCard();
 console.log(todoList.cards[0].description);
 todoList.removeCard();
+progressList.addCard();
+console.log((progressList.cards[0].description));
 console.log(todoList.cards[0].description);
+
 
