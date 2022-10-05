@@ -2,10 +2,12 @@ import Card from "./card";
 import Product from "./product";
 
 export default class List extends Product{
+
+  static draggedList=this;
+  cards = [];
   constructor(title){
     super(title);
   }
-  cards = [];
 
   addCard(){
       this.cards.push(Card.draggedCard);

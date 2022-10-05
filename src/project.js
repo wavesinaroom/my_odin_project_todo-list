@@ -5,4 +5,11 @@ export default class Project extends Product{
     super(title);
     this.description = description;
   }
+  lists = [];
+
+  swapLists(from,to){
+    let swap = this.lists[to];
+    this.lists[to] = from;
+    this.lists[from] = swap;
+  } 
 }
