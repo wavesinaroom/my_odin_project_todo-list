@@ -16,9 +16,6 @@ list.addCard(cardClone);
 project.addList(list);
 project.addList(listTwo);
 
-let projectJSON = JSON.stringify(project);
-localStorage.setItem('test', projectJSON);
-
-let projectFetch = localStorage.getItem('test');
-let projectOutput = JSON.parse(projectFetch);
-console.log(projectOutput.description + 'Done!');
+let cardFetch = localStorage.getItem(card.title);
+let output = JSON.parse(cardFetch);
+console.log(output.notes);

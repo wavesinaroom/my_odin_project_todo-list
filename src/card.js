@@ -19,6 +19,8 @@ export default class Card {
     this.notes = notes; 
     this.checklist = new Map();
     this.listName = listName; 
+
+    localStorage.setItem(title, JSON.stringify(this));
   }
 
   static clone(other){
