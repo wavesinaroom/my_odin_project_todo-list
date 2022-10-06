@@ -16,6 +16,7 @@ console.log(list.cards.length);
 console.dir(list);
 list.removeCard(0);
 console.log(list.cards.length);
+list.title = 'In progress';
 console.dir(list);
 list = null;
 console.dir(list);
