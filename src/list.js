@@ -9,7 +9,8 @@ export default class List {
       this.cards.push(card);
   }
   removeCard(position){
-    this.cards.slice(position);    
+    const deleteCount = 1;
+    this.cards.splice(position,deleteCount);    
   }
 }
 
