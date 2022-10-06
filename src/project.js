@@ -1,15 +1,13 @@
-import Product from "./product";
-
-export default class Project extends Product{
+export default class Project {
   constructor(title,description){
-    super(title);
+      this.title = title; 
     this.description = description;
   }
   lists = [];
-
-  swapLists(from,to){
-    let swap = this.lists[to];
-    this.lists[to] = from;
-    this.lists[from] = swap;
-  } 
+  addList(list){
+    this.lists.push(list);
+  }
+  removeList(position){
+    this.lists.splice(position);
+  }
 }

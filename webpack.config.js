@@ -4,7 +4,6 @@ module.exports = {
   mode: 'development',
   entry:{
     index: './src/index.js',
-    product: './src/product.js',
     card: './src/card.js',
     list: './src/list.js',
     project: './src/project.js'
