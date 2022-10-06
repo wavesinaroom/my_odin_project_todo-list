@@ -20,7 +20,8 @@ export default class Card {
     this.checklist = new Map();
     this.listName = listName; 
 
-    localStorage.setItem(title, JSON.stringify(this));
+    if(!localStorage.getItem(this.title))
+      localStorage.setItem(title, JSON.stringify(this));
   }
 
   static clone(other){

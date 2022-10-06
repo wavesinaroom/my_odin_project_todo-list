@@ -2,6 +2,9 @@ export default class Project {
   constructor(title,description){
     this.title = title; 
     this.description = description;
+
+    if(!localStorage.getItem(this.title))
+      localStorage.setItem(title, JSON.stringify(this));
   }
   lists = [];
   addList(list){
