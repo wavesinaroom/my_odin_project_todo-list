@@ -3,9 +3,6 @@ export default class List {
   cards = [];
   constructor(title){
     this.title = title;
-    
-    if(!localStorage.getItem(this.title))
-      localStorage.setItem(this.title, JSON.stringify(this));
   }
 
   addCard(card){

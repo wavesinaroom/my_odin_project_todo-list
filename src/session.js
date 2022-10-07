@@ -1,6 +1,7 @@
 export default class Session {
   data = [];
-  constructor(){
+  constructor(username){
+    this.username = username;
     if(localStorage.length!=0){
       for(let i = 0; i<localStorage.length; ++i){
        this.data[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
