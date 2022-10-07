@@ -8,7 +8,7 @@ export default class Session {
       localStorage.setItem(this.username+'-session', JSON.stringify(this));
     }else{
       window.addEventListener('storage', (e) => {
-      document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea9);
+      document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea);
       });
     } 
   }
