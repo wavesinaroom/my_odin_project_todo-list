@@ -3,7 +3,7 @@ import './style.css';
 import Card from './card.js';
 import List from './list.js';
 import Project from './project.js';
-import Session from './session.js';
+import User from './user';
 
 let project = new Project('Test','Test\'s going well');
 let list = new List('to-do');
@@ -16,9 +16,6 @@ list.addCard(cardClone);
 project.addList(list);
 project.addList(listTwo);
 
-let cardFetch = localStorage.getItem(card.title);
-let output = JSON.parse(cardFetch);
-console.log(output.notes);
-
-let session = new Session();
-session.logData();
+let user = new User('Paquita', 'paqui', '1234');
+user.login('laksdjf', 'lkdafjg');
+user.login('paqui', '1234');
