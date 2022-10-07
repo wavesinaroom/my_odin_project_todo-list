@@ -7,10 +7,9 @@ export default class Session {
     if(!localStorage.getItem(this.username+'-session')){
       localStorage.setItem(this.username+'-session', JSON.stringify(this));
     }else{
-      //update change
-      //window.addEventListener('storage', (e) => {
-      //document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea9);
-      //});
+      window.addEventListener('storage', (e) => {
+      document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea9);
+      });
     } 
   }
   addProject(project){

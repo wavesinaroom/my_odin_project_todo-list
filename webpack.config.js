@@ -6,7 +6,8 @@ module.exports = {
     index: './src/index.js',
     card: './src/card.js',
     list: './src/list.js',
-    project: './src/project.js'
+    project: './src/project.js',
+    session: './src/session.js'
   }, 
   output: {
     filename: '[name].bundle.js',

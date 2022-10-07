@@ -7,4 +7,7 @@ export default class User{
     this.password = password;
     this.session = new Session(username);
   }
+  login(username, password){
+    
+  }
 }
