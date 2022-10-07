@@ -2,16 +2,23 @@ export default class Session {
   data = [];
   constructor(username){
     this.username = username;
-    if(localStorage.length!=0){
-      for(let i = 0; i<localStorage.length; ++i){
-       this.data[i] = JSON.parse(localStorage.getItem(localStorage.key(i)));
-      }
-    }
   }
-  logData(){
-    for(let i = 0; i<this.data.length; ++i){
-      console.dir(this.data[i]);
-    }
+  saveSession(){
+    if(!localStorage.getItem(this.username+'-session')){
+      localStorage.setItem(this.username+'-session', JSON.stringify(this));
+    }else{
+      //update change
+      //window.addEventListener('storage', (e) => {
+      //document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea9);
+      //});
+    } 
+  }
+  addProject(project){
+    this.data.push(project);
+  }
+  removeProject(position){
+    const deleteCount = 1;
+    this.data.splice(position, deleteCount);
   }
 }
 
