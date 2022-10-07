@@ -4,7 +4,7 @@ export default class Project {
     this.description = description;
 
     if(!localStorage.getItem(this.title))
-      localStorage.setItem(title, JSON.stringify(this));
+      localStorage.setItem(this.title, JSON.stringify(this));
   }
   lists = [];
   addList(list){

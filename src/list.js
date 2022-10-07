@@ -5,7 +5,7 @@ export default class List {
     this.title = title;
     
     if(!localStorage.getItem(this.title))
-      localStorage.setItem(title, JSON.stringify(this));
+      localStorage.setItem(this.title, JSON.stringify(this));
   }
 
   addCard(card){

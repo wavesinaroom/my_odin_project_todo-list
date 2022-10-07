@@ -3,7 +3,7 @@ import './style.css';
 import Card from './card.js';
 import List from './list.js';
 import Project from './project.js';
-
+import Session from './session.js';
 
 let project = new Project('Test','Test\'s going well');
 let list = new List('to-do');
@@ -19,3 +19,6 @@ project.addList(listTwo);
 let cardFetch = localStorage.getItem(card.title);
 let output = JSON.parse(cardFetch);
 console.log(output.notes);
+
+let session = new Session();
+session.logData();
