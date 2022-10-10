@@ -16,6 +16,14 @@ export default class Card {
     return PRIORITY;
   }
 
+  static get STATUS(){
+    return STATUS;
+  }
+
+  static clone(other){
+    return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
+  }
+
   constructor(title,description,dueDate, priority, notes, listName){
     this.title = title;
     this.description = description;
@@ -25,10 +33,22 @@ export default class Card {
     this.checklist = new Map();
     this.listName = listName; 
     this.completion = STATUS.INPROGRESS;
-  }
 
-  static clone(other){
-    return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
+    this.render = function (){
+      let innerHTML = ["<div>",
+                      "<h4>", this.title, "</h4>",
+                      "<textarea>", this.description, "</textarea>",
+                      "<input type='date'>", this.dueDate, "</input>",
+                      "<p>", this.priority, "</p>",
+                      "<textarea>", this.notes, "</textarea>",
+                      "<p>", this.completion, "</p>"].join("");
+      document.getElementById("test").innerHTML = innerHTML;
+    }
+
+    let div = document.createElement('div');
+    div.id = "test";
+    document.body.appendChild(div);
+    this.render();
   }
 
 
