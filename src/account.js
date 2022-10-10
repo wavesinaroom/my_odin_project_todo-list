@@ -1,6 +1,6 @@
 import Session from "./session";
 
-export default class User{
+export default class Account{
 
   static check(username, password){
     if(localStorage.getItem(username)){
@@ -17,7 +17,7 @@ export default class User{
 
   static deleteAccount(username,password){
     
-    if(User.check(username, password)){
+    if(Account.check(username, password)){
       let account = JSON.parse(localStorage.getItem(username)); 
       account = null;
       localStorage.removeItem(username);

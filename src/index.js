@@ -3,7 +3,7 @@ import './style.css';
 import Card from './card.js';
 import List from './list.js';
 import Project from './project.js';
-import User from './user';
+import Account from './account.js';
 
 let project = new Project('Test','Test\'s going well');
 let list = new List('to-do');
@@ -16,14 +16,14 @@ list.addCard(cardClone);
 project.addList(list);
 project.addList(listTwo);
 
-let user = new User('paquita','paquita','1234');
+let user = new Account('paquita','paquita','1234');
 console.dir(user);
-User.deleteAccount('paquita', '1234');
+Account.deleteAccount('paquita', '1234');
 if(localStorage.getItem('paquita')){
   alert('It\'s still in the database');
 }else{
   alert('Deleted');
 }
 user = null;
-User.check('paquita','1234');
+Account.check('paquita','1234');
 console.dir(user);
