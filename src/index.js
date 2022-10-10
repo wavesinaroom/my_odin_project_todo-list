@@ -16,6 +16,14 @@ list.addCard(cardClone);
 project.addList(list);
 project.addList(listTwo);
 
-let user = new User('Paquita', 'paqui', '1234');
-user.login('laksdjf', 'lkdafjg');
-user.login('paqui', '1234');
+let user = new User('paquita','paquita','1234');
+console.dir(user);
+User.deleteAccount('paquita', '1234');
+if(localStorage.getItem('paquita')){
+  alert('It\'s still in the database');
+}else{
+  alert('Deleted');
+}
+user = null;
+User.check('paquita','1234');
+console.dir(user);
