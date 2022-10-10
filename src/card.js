@@ -5,6 +5,11 @@ const PRIORITY={
   HIGH: 'high'
 };
 
+const STATUS={
+  DONE: 'done',
+  INPROGRESS: 'InProgress'
+};
+
 export default class Card {
 
   static get PRIORITY(){
@@ -19,6 +24,7 @@ export default class Card {
     this.notes = notes; 
     this.checklist = new Map();
     this.listName = listName; 
+    this.completion = STATUS.INPROGRESS;
   }
 
   static clone(other){
