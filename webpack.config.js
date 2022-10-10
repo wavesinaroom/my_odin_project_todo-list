@@ -8,7 +8,7 @@ module.exports = {
     list: './src/list.js',
     project: './src/project.js',
     session: './src/session.js',
-    user: './src/user.js'
+    account: './src/account.js'
   }, 
   output: {
     filename: '[name].bundle.js',
