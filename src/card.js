@@ -45,7 +45,10 @@ export default class Card {
                       "<option value='"+PRIORITY.HIGH+"'>High</option>",
                       "</select>",
                       "<textarea>", this.notes, "</textarea>",
-                      "<p>", this.completion, "</p>",
+                      "<select name='status'>",
+                      "<option value='"+STATUS.DONE+"'>Done</option>'", 
+                      "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
+                      "</select>",
                       "<button id='save'>Save</button>"].join("");
       document.getElementById(this.tag).innerHTML = innerHTML;
     }
@@ -56,8 +59,9 @@ export default class Card {
       this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
       this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
       this.notes = document.querySelector('#'+this.tag+' :nth-child(5)').value;
+      this.completion = document.querySelector('#'+this.tag+' :nth-child(6)').value;
        
-      console.log(this.notes);
+      console.log(this.completion);
     }
 
     let div = document.createElement('div');
