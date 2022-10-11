@@ -55,8 +55,9 @@ export default class Card {
       this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
       this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
       this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
-    
-      console.log(this.priority);
+      this.notes = document.querySelector('#'+this.tag+' :nth-child(5)').value;
+       
+      console.log(this.notes);
     }
 
     let div = document.createElement('div');
