@@ -39,7 +39,11 @@ export default class Card {
       let innerHTML = ["<textarea>", this.title, "</textarea>",
                       "<textarea>", this.description, "</textarea>",
                       "<input type='date'>", this.dueDate, "</input>",
-                      "<p>", this.priority, "</p>",
+                      "<select name='priority'>",
+                      "<option value='"+PRIORITY.LOW+"'>Low</option>",
+                      "<option value='"+PRIORITY.MID+"'>Medium</option>",
+                      "<option value='"+PRIORITY.HIGH+"'>High</option>",
+                      "</select>",
                       "<textarea>", this.notes, "</textarea>",
                       "<p>", this.completion, "</p>",
                       "<button id='save'>Save</button>"].join("");
@@ -50,7 +54,9 @@ export default class Card {
       this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
       this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
       this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
-      console.log(this.dueDate);
+      this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
+    
+      console.log(this.priority);
     }
 
     let div = document.createElement('div');
