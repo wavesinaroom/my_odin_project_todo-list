@@ -26,8 +26,9 @@ export default class Card {
 
   constructor(title,description,dueDate, priority, notes, listName){
     this.title = title;
+    this.tag = this.title.split(" ").join("");
     this.description = description;
-    this.dueDate = new Date(dueDate); //use this when inputting from html https://stackoverflow.com/questions/28760254/assign-javascript-date-to-html5-datetime-local-input
+    this.dueDate = null; //use this when inputting from html https://stackoverflow.com/questions/28760254/assign-javascript-date-to-html5-datetime-local-input
     this.priority = priority; 
     this.notes = notes; 
     this.checklist = new Map();
@@ -35,21 +36,27 @@ export default class Card {
     this.completion = STATUS.INPROGRESS;
 
     this.render = function (){
-      let innerHTML = ["<div>",
-                      "<h4>", this.title, "</h4>",
+      let innerHTML = ["<textarea>", this.title, "</textarea>",
                       "<textarea>", this.description, "</textarea>",
                       "<input type='date'>", this.dueDate, "</input>",
                       "<p>", this.priority, "</p>",
                       "<textarea>", this.notes, "</textarea>",
-                      "<p>", this.completion, "</p>"].join("");
-      document.getElementById("test").innerHTML = innerHTML;
+                      "<p>", this.completion, "</p>",
+                      "<button id='save'>Save</button>"].join("");
+      document.getElementById(this.tag).innerHTML = innerHTML;
+    }
+
+    this.saveChanges = function(){
+      this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
+      console.log(this.title);
     }
 
     let div = document.createElement('div');
-    div.id = "test";
+    div.id = this.tag; 
+    div.className = 'card';
     document.body.appendChild(div);
     this.render();
+    document.getElementById('save').addEventListener('click', ()=>{this.saveChanges();});
+
   }
-
-
 }
