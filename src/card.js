@@ -49,7 +49,8 @@ export default class Card {
     this.saveChanges = function(){
       this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
       this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
-      console.log(this.description);
+      this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
+      console.log(this.dueDate);
     }
 
     let div = document.createElement('div');
