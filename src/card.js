@@ -15,7 +15,7 @@ function checklistItem(){
     check : false,
     description : "",
    removeChecklistItem: function (){
-      this = null; 
+     delete this;
     }
   };
   //Flesh out HTML here
@@ -59,8 +59,8 @@ export default class Card {
                       "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
                       "</select>",
                       "<div>",
+                      "<h5>Checklist</h5>",
                       "<button id='add-checklist'>Add checklist</button>",
-                      "<button id='remove-checklist'>Remove checklist</button>",
                       "</div>",
                       "<textarea>", this.notes, "</textarea>",
                       "<button id='save-button'>Save</button>"].join("");
