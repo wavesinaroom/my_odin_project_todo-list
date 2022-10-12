@@ -38,7 +38,7 @@ export default class Card {
     this.title = title;
     this.tag = this.title.split(" ").join("");
     this.description = description;
-    this.dueDate = null; //use this when inputting from html https://stackoverflow.com/questions/28760254/assign-javascript-date-to-html5-datetime-local-input
+    this.dueDate = null; 
     this.priority = priority; 
     this.notes = notes; 
     this.listName = listName; 
@@ -60,7 +60,7 @@ export default class Card {
                       "</select>",
                       "<div>",
                       "<h5>Checklist</h5>",
-                      "<button id='add-checklist'>Add checklist</button>",
+                      "<button id='add-checklist'>Add</button>",
                       "</div>",
                       "<textarea>", this.notes, "</textarea>",
                       "<button id='save-button'>Save</button>"].join("");
@@ -75,9 +75,8 @@ export default class Card {
     this.render();
 
     document.getElementById('save-button').addEventListener('click', ()=>{this.saveChanges();});
-    document.getElementById('add-checklist').addEventListener('click', ()=>{this.addChecklistItem();});
-    document.getElementById('remove-checklist').addEventListener('click', ()=>{this.removeChecklistItem();});
-
+    document.getElementById('add-checklist').addEventListener('click', ()=>{checklistItem();});
+   
   }
 
     saveChanges = function(){
