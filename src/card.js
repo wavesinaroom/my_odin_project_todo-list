@@ -11,14 +11,17 @@ const STATUS={
 };
 
 function checklistItem(){
-  return {
-    check : false,
-    description : "",
-   removeChecklistItem: function (){
-     delete this;
-    }
-  };
-  //Flesh out HTML here
+  let check = false;
+  let description = "";
+  const removeChecklistItem= function (){
+   delete this;
+  }
+  let innerHTML = ["<input type='checkbox'></input>",
+                   "<textarea>A card</textarea>"].join("");  
+  let div = document.createElement('div');
+  div.innerHTML = innerHTML;
+  document.getElementById('Mycard-checklist').appendChild(div);
+  return check, description;
 }
 export default class Card {
 
@@ -48,7 +51,9 @@ export default class Card {
       let innerHTML = ["<textarea>", this.title, "</textarea>",
                       "<textarea>", this.description, "</textarea>",
                       "<input type='date'>", this.dueDate, "</input>",
-                      "<section id='"+this.tag+"-checklist'></section>",
+                      "<section id='"+this.tag+"-checklist'>",
+                      "<button id='add-checklist'>Add</button>",
+                      "</section>",
                       "<select name='priority'>",
                       "<option value='"+PRIORITY.LOW+"'>Low</option>",
                       "<option value='"+PRIORITY.MID+"'>Medium</option>",
@@ -58,10 +63,6 @@ export default class Card {
                       "<option value='"+STATUS.DONE+"'>Done</option>'", 
                       "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
                       "</select>",
-                      "<div>",
-                      "<h5>Checklist</h5>",
-                      "<button id='add-checklist'>Add</button>",
-                      "</div>",
                       "<textarea>", this.notes, "</textarea>",
                       "<button id='save-button'>Save</button>"].join("");
       document.getElementById(this.tag).innerHTML = innerHTML;
