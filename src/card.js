@@ -18,6 +18,7 @@ function checklistItem(){
       this = null; 
     }
   };
+  //Flesh out HTML here
 }
 export default class Card {
 
@@ -40,7 +41,6 @@ export default class Card {
     this.dueDate = null; //use this when inputting from html https://stackoverflow.com/questions/28760254/assign-javascript-date-to-html5-datetime-local-input
     this.priority = priority; 
     this.notes = notes; 
-    this.checklist = [];
     this.listName = listName; 
     this.completion = STATUS.INPROGRESS;
 
@@ -79,10 +79,6 @@ export default class Card {
     document.getElementById('remove-checklist').addEventListener('click', ()=>{this.removeChecklistItem();});
 
   }
-    addChecklistItem(){
-     let item = checklistItem();
-     this.checklist.push(item); 
-    } 
 
     saveChanges = function(){
       //Find out a way to use the onfocusout event to save changes in fields. 
