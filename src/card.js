@@ -1,3 +1,5 @@
+import checklistItem from "./check-item";
+
 const PRIORITY={
   DEFAULT: 'default',
   LOW: 'low',
@@ -10,19 +12,7 @@ const STATUS={
   INPROGRESS: 'InProgress'
 };
 
-function checklistItem(){
-  let check = false;
-  let description = "";
-  const removeChecklistItem= function (){
-   delete this;
-  }
-  let innerHTML = ["<input type='checkbox'></input>",
-                   "<textarea>A card</textarea>"].join("");  
-  let div = document.createElement('div');
-  div.innerHTML = innerHTML;
-  document.getElementById('Mycard-checklist').appendChild(div);
-  return check, description;
-}
+
 export default class Card {
 
   static get PRIORITY(){
@@ -42,6 +32,8 @@ export default class Card {
     this.tag = this.title.split(" ").join("");
     this.description = description;
     this.dueDate = null; 
+    this.checklist = [];
+    this.checklistItemCount = 0;
     this.priority = priority; 
     this.notes = notes; 
     this.listName = listName; 
@@ -76,17 +68,21 @@ export default class Card {
     this.render();
 
     document.getElementById('save-button').addEventListener('click', ()=>{this.saveChanges();});
-    document.getElementById('add-checklist').addEventListener('click', ()=>{checklistItem();});
+    document.getElementById('add-checklist').addEventListener('click', ()=>{this.addChecklistItem();});
    
   }
 
-    saveChanges = function(){
-      //Find out a way to use the onfocusout event to save changes in fields. 
-      this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
-      this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
-      this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
-      this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
-      this.completion = document.querySelector('#'+this.tag+' :nth-child(5)').value;
-      this.notes = document.querySelector('#'+this.tag+' :nth-child(7)').value;
-    }
+  addChecklistItem = function (){
+    this.checklist.push(new checklistItem());
+  } 
+
+  saveChanges = function(){
+    //Find out a way to use the onfocusout event to save changes in fields. 
+    this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
+    this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
+    this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
+    this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
+    this.completion = document.querySelector('#'+this.tag+' :nth-child(5)').value;
+    this.notes = document.querySelector('#'+this.tag+' :nth-child(7)').value;
+  }
 }
