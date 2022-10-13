@@ -73,9 +73,14 @@ export default class Card {
   }
 
   addChecklistItem = function (){
-    this.checklist.push(new checklistItem());
+    this.checklist.push(new checklistItem(this));
+    ++this.checklistItemCount;
   } 
 
+  logChecklist(){
+    console.log(this.checklist.length);
+
+  }
   saveChanges = function(){
     //Find out a way to use the onfocusout event to save changes in fields. 
     this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;

@@ -1,5 +1,8 @@
+import Card from "./card";
+
 export default class checklistItem  {
-  constructor(){
+  constructor(card){
+    this.card = card;
     this.check = false;
     this.description = "Description";
 
@@ -17,7 +20,16 @@ export default class checklistItem  {
     this.render();
 
     document.getElementById('Mycard-checklist').appendChild(div);
-    document.getElementById('delete-checkitem').addEventListener('click', ()=>{this.removeChecklistItem(description);});
+    document.getElementById('delete-checkitem').addEventListener('click', ()=>{this.deleteSelf();});
   }
-
+  
+  deleteSelf(){
+    alert('got in');
+    let position = 0;
+    while(position<this.card.checklist.length&&this.description!=this.card.checklist[position].description){
+      ++position;
+    }
+    this.card.checklist.splice(position,1);
+    this.card.logChecklist();
+  }
 }
