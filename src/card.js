@@ -1,4 +1,4 @@
-import checklistItem from "./check-item";
+import ChecklistItem from "./check-item";
 
 const PRIORITY={
   DEFAULT: 'default',
@@ -14,6 +14,8 @@ const STATUS={
 
 
 export default class Card {
+
+  static ID=0;
 
   static get PRIORITY(){
     return PRIORITY;
@@ -33,7 +35,6 @@ export default class Card {
     this.description = description;
     this.dueDate = null; 
     this.checklist = [];
-    this.checklistItemCount = 0;
     this.priority = priority; 
     this.notes = notes; 
     this.listName = listName; 
@@ -73,8 +74,8 @@ export default class Card {
   }
 
   addChecklistItem = function (){
-    this.checklist.push(new checklistItem(this));
-    ++this.checklistItemCount;
+    this.checklist.push(new ChecklistItem(this));
+    ++ChecklistItem.checkItemID;
   } 
 
   logChecklist(){
