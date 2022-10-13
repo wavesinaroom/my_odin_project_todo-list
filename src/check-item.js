@@ -31,5 +31,6 @@ export default class ChecklistItem  {
       ++position;
     }
     this.card.checklist.splice(position,1);
+    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
   }
 }
