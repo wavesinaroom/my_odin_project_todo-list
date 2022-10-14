@@ -23,6 +23,9 @@ export default class List {
     this.render();
 
     document.getElementById('add-C').addEventListener('click', ()=>{this.addCard();});
+    div.children[0].addEventListener('focusout', ()=>{
+      this.title = div.children[0].value;
+    });
   }
 
   addCard(){
