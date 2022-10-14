@@ -31,7 +31,7 @@ export default class Card {
 
   constructor(title,description,dueDate, priority, notes, listName){
     this.title = title;
-    this.tag = this.title.split(" ").join("");
+    this.id = 'C'+Card.ID; 
     this.description = description;
     this.dueDate = null; 
     this.checklist = [];
@@ -44,8 +44,8 @@ export default class Card {
       let innerHTML = ["<textarea>", this.title, "</textarea>",
                       "<textarea>", this.description, "</textarea>",
                       "<input type='date'>", this.dueDate, "</input>",
-                      "<section id='"+this.tag+"-checklist'>",
-                      "<button id='add-checklist'>Add</button>",
+                      "<section id='"+this.id+"-CH'>",
+                      "<button id='add-CHI'>Add</button>",
                       "</section>",
                       "<select name='priority'>",
                       "<option value='"+PRIORITY.LOW+"'>Low</option>",
@@ -58,18 +58,18 @@ export default class Card {
                       "</select>",
                       "<textarea>", this.notes, "</textarea>",
                       "<button id='save-button'>Save</button>"].join("");
-      document.getElementById(this.tag).innerHTML = innerHTML;
+      document.getElementById(this.id).innerHTML = innerHTML;
     }
 
 
     let div = document.createElement('div');
-    div.id = this.tag; 
+    div.id = this.id; 
     div.className = 'card';
     document.body.appendChild(div);
     this.render();
 
     document.getElementById('save-button').addEventListener('click', ()=>{this.saveChanges();});
-    document.getElementById('add-checklist').addEventListener('click', ()=>{this.addChecklistItem();});
+    document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
    
   }
 
@@ -84,11 +84,11 @@ export default class Card {
   }
   saveChanges = function(){
     //Find out a way to use the onfocusout event to save changes in fields. 
-    this.title = document.querySelector('#'+this.tag+' :nth-child(1)').value;
-    this.description = document.querySelector('#'+this.tag+' :nth-child(2)').value;
-    this.dueDate = document.querySelector('#'+this.tag+' :nth-child(3)').value;
-    this.priority = document.querySelector('#'+this.tag+' :nth-child(4)').value;
-    this.completion = document.querySelector('#'+this.tag+' :nth-child(5)').value;
-    this.notes = document.querySelector('#'+this.tag+' :nth-child(7)').value;
+    this.title = document.querySelector('#'+this.id+' :nth-child(1)').value;
+    this.description = document.querySelector('#'+this.id+' :nth-child(2)').value;
+    this.dueDate = document.querySelector('#'+this.id+' :nth-child(3)').value;
+    this.priority = document.querySelector('#'+this.id+' :nth-child(4)').value;
+    this.completion = document.querySelector('#'+this.id+' :nth-child(5)').value;
+    this.notes = document.querySelector('#'+this.id+' :nth-child(7)').value;
   }
 }

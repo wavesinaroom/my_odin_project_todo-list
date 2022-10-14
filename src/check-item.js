@@ -6,7 +6,7 @@ export default class ChecklistItem  {
     this.card = card;
     this.check = false;
     this.description = "Description";
-    this.id = Card.ID+'-checklist-item-'+ChecklistItem.checkItemID;
+    this.id = Card.ID+'-CHI'+ChecklistItem.checkItemID;
 
     this.render = function (){
       let innerHTML = ["<input type='checkbox'></input>",
@@ -17,12 +17,12 @@ export default class ChecklistItem  {
     
     let div = document.createElement('div');
     div.id = this.id; 
-    document.getElementById('Mycard-checklist').appendChild(div);
+    div.className = 'checklist';
+    document.getElementById(this.card.id+'-CH').appendChild(div);
     this.render();
 
     
     document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
-
     for(let i = 0; i<div.children.length-1; ++i){
       div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
     }
@@ -38,12 +38,10 @@ export default class ChecklistItem  {
   }
 
   saveChanges(){
-    alert('Got in');
     if(document.getElementById(this.id).children[0].value)
       this.check = true;
     else
       this.check = false;
-    console.log(this.check);
     this.description = document.getElementById(this.id).children[1].value;
   }
 }
