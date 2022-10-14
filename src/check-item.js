@@ -39,7 +39,11 @@ export default class ChecklistItem  {
 
   saveChanges(){
     alert('Got in');
-    this.check = document.getElementById(this.id).children[0].value; 
+    if(document.getElementById(this.id).children[0].value)
+      this.check = true;
+    else
+      this.check = false;
+    console.log(this.check);
     this.description = document.getElementById(this.id).children[1].value;
   }
 }
