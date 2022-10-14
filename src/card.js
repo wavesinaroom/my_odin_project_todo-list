@@ -54,7 +54,8 @@ export default class Card {
                       "<option value='"+STATUS.DONE+"'>Done</option>'", 
                       "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
                       "</select>",
-                      "<textarea>", this.notes, "</textarea>"].join("");
+                      "<textarea>", this.notes, "</textarea>",
+                      "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 
@@ -66,6 +67,7 @@ export default class Card {
     this.render();
 
     document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
+    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
     for(let i=0; i<div.children.length; ++i){
       div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
     } 
@@ -75,6 +77,15 @@ export default class Card {
     this.checklist.push(new ChecklistItem(this));
     ++ChecklistItem.ID;
   } 
+
+  deleteSelf(){
+    let position = 0;
+    while(position<this.list.cards.length&&this.description!=this.list.cards[position].description){
+      ++position;
+    }
+    this.list.cards.splice(position,1);
+    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
+  }
 
   saveChanges = function(){
     this.title = document.querySelector('#'+this.id+' :nth-child(1)').value;
