@@ -33,9 +33,5 @@ export default class List {
     ++Card.ID; 
   }
   
-  removeCard(position){
-    const deleteCount = 1;
-    this.cards.splice(position,deleteCount);    
-  }
 }
 
