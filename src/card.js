@@ -29,7 +29,7 @@ export default class Card {
     return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
   }
 
-  constructor(title,description,dueDate, priority, notes, listName){
+  constructor(title, description, priority, notes, listName){
     this.title = title;
     this.id = 'C'+Card.ID; 
     this.description = description;
