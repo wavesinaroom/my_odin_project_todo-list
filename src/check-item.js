@@ -1,7 +1,7 @@
 import Card from "./card";
 
 export default class ChecklistItem  {
-  static checkItemID=0;
+  static ID=0;
   constructor(card){
     this.card = card;
     this.check = false;

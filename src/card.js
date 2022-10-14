@@ -1,4 +1,5 @@
 import ChecklistItem from "./check-item";
+import List from "./list";
 
 const PRIORITY={
   DEFAULT: 'default',
@@ -25,20 +26,21 @@ export default class Card {
     return STATUS;
   }
 
-  constructor(title, description, priority, notes, listName){
-    this.title = title;
-    this.id = 'C'+Card.ID; 
-    this.description = description;
-    this.dueDate = null; 
-    this.checklist = [];
-    this.priority = priority; 
-    this.notes = notes; 
-    this.listName = listName; 
-    this.completion = STATUS.INPROGRESS;
+  title;
+  description;
+  dueDate; 
+  checklist = [];
+  priority = PRIORITY.DEFAULT; 
+  notes; 
+  listName; 
+  completion = STATUS.INPROGRESS;
 
+  constructor(list){
+    this.id = 'C'+Card.ID; 
+    this.list = list;
     this.render = function (){
-      let innerHTML = ["<textarea>", this.title, "</textarea>",
-                      "<textarea>", this.description, "</textarea>",
+      let innerHTML = ["<textarea placeholder='Title'></textarea>",
+                      "<textarea placeholder='Description'></textarea>",
                       "<input type='date'>", this.dueDate, "</input>",
                       "<section id='"+this.id+"-CH'>",
                       "<button id='add-CHI'>Add</button>",
@@ -60,7 +62,7 @@ export default class Card {
     let div = document.createElement('div');
     div.id = this.id; 
     div.className = 'card';
-    document.body.appendChild(div);
+    document.getElementById(this.list.id).appendChild(div);
     this.render();
 
     document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
@@ -71,7 +73,7 @@ export default class Card {
 
   addChecklistItem = function (){
     this.checklist.push(new ChecklistItem(this));
-    ++ChecklistItem.checkItemID;
+    ++ChecklistItem.ID;
   } 
 
   saveChanges = function(){
@@ -81,6 +83,5 @@ export default class Card {
     this.priority = document.querySelector('#'+this.id+' :nth-child(4)').value;
     this.completion = document.querySelector('#'+this.id+' :nth-child(5)').value;
     this.notes = document.querySelector('#'+this.id+' :nth-child(7)').value;
-    console.dir(this);
   }
 }
