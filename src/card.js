@@ -52,8 +52,7 @@ export default class Card {
                       "<option value='"+STATUS.DONE+"'>Done</option>'", 
                       "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
                       "</select>",
-                      "<textarea>", this.notes, "</textarea>",
-                      "<button id='save-button'>Save</button>"].join("");
+                      "<textarea>", this.notes, "</textarea>"].join("");
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 
@@ -64,9 +63,10 @@ export default class Card {
     document.body.appendChild(div);
     this.render();
 
-    document.getElementById('save-button').addEventListener('click', ()=>{this.saveChanges();});
     document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
-   
+    for(let i=0; i<div.children.length; ++i){
+      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
+    } 
   }
 
   addChecklistItem = function (){
@@ -74,17 +74,13 @@ export default class Card {
     ++ChecklistItem.checkItemID;
   } 
 
-  logChecklist(){
-    console.log(this.checklist.length);
-
-  }
   saveChanges = function(){
-    //Find out a way to use the onfocusout event to save changes in fields. 
     this.title = document.querySelector('#'+this.id+' :nth-child(1)').value;
     this.description = document.querySelector('#'+this.id+' :nth-child(2)').value;
     this.dueDate = document.querySelector('#'+this.id+' :nth-child(3)').value;
     this.priority = document.querySelector('#'+this.id+' :nth-child(4)').value;
     this.completion = document.querySelector('#'+this.id+' :nth-child(5)').value;
     this.notes = document.querySelector('#'+this.id+' :nth-child(7)').value;
+    console.dir(this);
   }
 }

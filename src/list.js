@@ -1,5 +1,7 @@
 export default class List {
 
+  static ID=0;
+
   cards = [];
   constructor(title){
     this.title = title;
