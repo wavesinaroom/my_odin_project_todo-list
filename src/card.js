@@ -25,10 +25,6 @@ export default class Card {
     return STATUS;
   }
 
-  static clone(other){
-    return new Card(other.title, other.description, other.dueDate, other.priority, other.notes);
-  }
-
   constructor(title, description, priority, notes, listName){
     this.title = title;
     this.id = 'C'+Card.ID; 
