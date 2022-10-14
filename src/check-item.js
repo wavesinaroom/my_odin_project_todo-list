@@ -17,12 +17,15 @@ export default class ChecklistItem  {
     
     let div = document.createElement('div');
     div.id = this.id; 
-    div.innerHTML = this.innerHTML;
-    document.body.appendChild(div)
+    document.getElementById('Mycard-checklist').appendChild(div);
     this.render();
 
-    document.getElementById('Mycard-checklist').appendChild(div);
+    
     document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
+
+    for(let i = 0; i<div.children.length-1; ++i){
+      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
+    }
   }
   
   deleteSelf(){
@@ -32,5 +35,11 @@ export default class ChecklistItem  {
     }
     this.card.checklist.splice(position,1);
     document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
+  }
+
+  saveChanges(){
+    alert('Got in');
+    this.check = document.getElementById(this.id).children[0].value; 
+    this.description = document.getElementById(this.id).children[1].value;
   }
 }
