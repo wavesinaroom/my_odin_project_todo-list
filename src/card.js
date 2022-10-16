@@ -1,5 +1,4 @@
 import ChecklistItem from "./check-item";
-import List from "./list";
 
 const PRIORITY={
   DEFAULT: 'default',
@@ -41,7 +40,7 @@ export default class Card {
     this.render = function (){
       let innerHTML = ["<textarea placeholder='Title'></textarea>",
                       "<textarea placeholder='Description'></textarea>",
-                      "<input type='date'>", this.dueDate, "</input>",
+                      "<input type='date' placeholder='2022-10-10'></input>",
                       "<section id='"+this.id+"-CH'>",
                       "<button id='add-CHI'>Add</button>",
                       "</section>",
@@ -54,7 +53,7 @@ export default class Card {
                       "<option value='"+STATUS.DONE+"'>Done</option>'", 
                       "<option value='"+STATUS.INPROGRESS+"'>In progress</option>'", 
                       "</select>",
-                      "<textarea>", this.notes, "</textarea>",
+                      "<textarea placeholder='Notes'></textarea>",
                       "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
       document.getElementById(this.id).innerHTML = innerHTML;
     }
@@ -63,6 +62,7 @@ export default class Card {
     let div = document.createElement('div');
     div.id = this.id; 
     div.className = 'card';
+    console.log(this.list.id);
     document.getElementById(this.list.id).appendChild(div);
     this.render();
 
