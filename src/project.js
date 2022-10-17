@@ -12,7 +12,7 @@ export default class Project {
     this.session = session;
     this.id = 'P'+Project.ID;
     this.render = function (){
-      let innerHTML = ["<textarea>", this.title, "</textarea",
+      let innerHTML = ["<textarea placeholder='Project title'></textarea>",
                       "<section id='"+this.id+"-C'>",
                       "<button id='add-L'>Add</button>",
                       "</section>",
@@ -23,10 +23,11 @@ export default class Project {
     let div = document.createElement('div');
     div.id = this.id;
     div.className = 'project';
-    document.body.appendChild(div);
+    document.getElementById(this.session.id).appendChild(div); 
     this.render();
 
     document.getElementById('add-L').addEventListener('click', ()=>{this.addList();});
+    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
     for(let i = 0; i<div.childElementCount; ++i){
       div.children[i].addEventListener('focusout', ()=>{
         this.title = div.children[i].value;

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import List from './list'; 
+import Session from './session';
 
-let list = new List ("My list");
+let session = new Session('wavesinaroom');
 

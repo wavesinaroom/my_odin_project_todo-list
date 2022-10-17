@@ -11,7 +11,7 @@ export default class List {
     this.project = project;
     this.id = 'L'+List.ID;
     this.render = function (){
-      let innerHTML = ["<textarea>", this.title,"</textarea>",
+      let innerHTML = ["<textarea placeholder='List Title'></textarea>",
                       "<section id='"+this.id+"-C'>",
                       "<button id='add-C'>Add</button>",
                       "</section>",
@@ -26,6 +26,7 @@ export default class List {
     this.render();
 
     document.getElementById('add-C').addEventListener('click', ()=>{this.addCard();});
+    document.getElementById('delete-'+this.id).addEventListener('click',  ()=>{this.deleteSelf();});
     div.children[0].addEventListener('focusout', ()=>{
       this.title = div.children[0].value;
     });

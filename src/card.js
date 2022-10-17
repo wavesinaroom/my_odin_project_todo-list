@@ -62,15 +62,13 @@ export default class Card {
     let div = document.createElement('div');
     div.id = this.id; 
     div.className = 'card';
-    console.log(this.list.id);
     document.getElementById(this.list.id).appendChild(div);
-    this.render();
 
-    document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
-    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
-    for(let i=0; i<div.children.length; ++i){
-      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
-    } 
+ //    document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
+ //    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
+ //    for(let i=0; i<div.children.length; ++i){
+ //      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
+ //    } 
   }
 
   addChecklistItem = function (){
