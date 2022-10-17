@@ -12,17 +12,17 @@ export default class List {
     this.id = 'L'+List.ID;
     this.render = function (){
       let innerHTML = ["<textarea placeholder='List Title'></textarea>",
+                      "<button id = 'delete-"+this.id+"'>Delete List</button>",
+                      "<button id='add-C'>Add Card</button>",
                       "<section id='"+this.id+"-C'>",
-                      "<button id='add-C'>Add</button>",
-                      "</section>",
-                      "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
+                      "</section>"].join("");
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 
     let div = document.createElement('div');
     div.id = this.id;
     div.className = 'list';
-    document.getElementById(this.project.id).appendChild(div); 
+    document.getElementById(this.project.id+"-L").appendChild(div); 
     this.render();
 
     document.getElementById('add-C').addEventListener('click', ()=>{this.addCard();});

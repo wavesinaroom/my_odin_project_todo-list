@@ -13,10 +13,10 @@ export default class Project {
     this.id = 'P'+Project.ID;
     this.render = function (){
       let innerHTML = ["<textarea placeholder='Project title'></textarea>",
-                      "<section id='"+this.id+"-C'>",
-                      "<button id='add-L'>Add</button>",
-                      "</section>",
-                      "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
+                      "<button id='add-L'>Add List</button>",
+                      "<button id = 'delete-"+this.id+"'>Delete Project</button>",
+                      "<section id='"+this.id+"-L'>",
+                      "</section>"].join("");
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 

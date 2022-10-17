@@ -55,6 +55,7 @@ export default class Card {
                       "</select>",
                       "<textarea placeholder='Notes'></textarea>",
                       "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
+      console.log(this.id);
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 
@@ -62,13 +63,14 @@ export default class Card {
     let div = document.createElement('div');
     div.id = this.id; 
     div.className = 'card';
-    document.getElementById(this.list.id).appendChild(div);
+    document.getElementById(this.list.id+'-C').appendChild(div);
+    this.render();
 
- //    document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
- //    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
- //    for(let i=0; i<div.children.length; ++i){
- //      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
- //    } 
+    document.getElementById('add-CHI').addEventListener('click', ()=>{this.addChecklistItem();});
+    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
+    for(let i=0; i<div.children.length; ++i){
+      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
+    } 
   }
 
   addChecklistItem = function (){
