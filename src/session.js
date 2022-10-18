@@ -24,6 +24,12 @@ export default class Session {
     newUser.saveSession();
   }
 
+  static logOut(session){
+    session.saveSession();
+    document.getElementById(session.id).parentNode.removeChild(document.getElementById(session.id));
+    session = undefined;
+    alert('Logged out');
+  }
 
   constructor(username, password){
     this.username = username;
@@ -34,9 +40,13 @@ export default class Session {
     this.div.className = 'session';
     this.div.innerHTML = this.innerHTML;
     document.body.appendChild(this.div);
+    
+    this.logOutButton = document.createElement('button');
+    this.logOutButton.id = 'logB';
+    this.div.appendChild(this.logOutButton);
 
     document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
-    console.log(this.id);
+    document.getElementById(this.logOutButton.id).addEventListener('click', ()=>{Session.logOut(this);});
   }
 
   saveSession(){
@@ -54,11 +64,6 @@ export default class Session {
     ++Project.ID;
   }
 
-  logOut(){
-    this.session.saveSession();
-    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
-    this.session = undefined;
-  }
 }
 
 
