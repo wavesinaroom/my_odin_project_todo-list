@@ -8,7 +8,8 @@ export default class Session {
   static verifyLogin(username, password){
     if(localStorage.getItem(username+'-session')){
       let userSession = JSON.parse(localStorage.getItem(username+'-session')); 
-      if(password==user.password){
+      if(password==userSession.password){
+        alert('You can call it a day');
         div.innerHTML = innerHTML + userSession;           
       }else{
         alert('Wrong password');
@@ -23,23 +24,18 @@ export default class Session {
     newUser.saveSession();
   }
 
-  static logOut(session){
-    session.saveSession();
-    session.div.innerHTML = '';
-    session = undefined;
-  }
 
   constructor(username, password){
     this.username = username;
     this.password = password;
-    this.id = 'Session';
+    this.id = username+'-session';
 
-    div.id = this.id; 
-    div.className = 'session';
-    div.innerHTML = innerHTML;
-    document.body.appendChild(div);
+    this.div.id = this.id; 
+    this.div.className = 'session';
+    this.div.innerHTML = this.innerHTML;
+    document.body.appendChild(this.div);
 
-    document.getElementById(div.children[0].id).addEventListener('click', ()=>{this.addProject();});
+    document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
     console.log(this.id);
   }
 
@@ -56,6 +52,12 @@ export default class Session {
   addProject(){
     this.data.push(new Project(this));
     ++Project.ID;
+  }
+
+  logOut(){
+    this.session.saveSession();
+    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
+    this.session = undefined;
   }
 }
 
