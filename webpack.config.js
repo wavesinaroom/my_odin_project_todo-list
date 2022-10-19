@@ -6,6 +6,7 @@ module.exports = {
     index: './src/index.js',
     card: './src/card.js',
     list: './src/list.js',
+    login: './src/login-panel.js',
     project: './src/project.js',
     session: './src/session.js',
     account: './src/account.js',

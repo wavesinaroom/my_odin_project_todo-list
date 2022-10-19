@@ -5,12 +5,17 @@ export default class Session {
   div = document.createElement('div');
   innerHTML = "<button id='add-P'>Add Project</button>";
 
+  static currentSession;
+
   static verifyLogin(username, password){
     if(localStorage.getItem(username+'-session')){
-      let userSession = JSON.parse(localStorage.getItem(username+'-session')); 
-      if(password==userSession.password){
+      Session.currentSession = JSON.parse(localStorage.getItem(username+'-session')); 
+      if(password==Session.currentSession.password){
         alert('You can call it a day');
-        div.innerHTML = innerHTML + userSession;           
+        let div = document.createElement('div');
+        div.innerHTML = Session.currentSession.innerHTML;
+        console.log(div.innerHTML);
+        document.body.appendChild(div);
       }else{
         alert('Wrong password');
       }
@@ -43,6 +48,7 @@ export default class Session {
     
     this.logOutButton = document.createElement('button');
     this.logOutButton.id = 'logB';
+    this.logOutButton.innerHTML = 'Log out';
     this.div.appendChild(this.logOutButton);
 
     document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
@@ -50,14 +56,15 @@ export default class Session {
   }
 
   saveSession(){
+    //Can't save changes yet
     if(!localStorage.getItem(this.username+'-session')){
       localStorage.setItem(this.username+'-session', JSON.stringify(this));
     }else{
-      window.addEventListener('storage', (e) => {
-      document.querySelector('.my-storage').textContent = JSON.stringify(e.storageArea);
-      });
-    } 
-  }
+      localStorage.removeItem(this.username+'-session');
+      localStorage.setItem(this.username+'-session', JSON.stringify(this));
+    }
+  } 
+ 
 
   addProject(){
     this.data.push(new Project(this));
