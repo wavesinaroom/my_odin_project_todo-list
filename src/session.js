@@ -5,37 +5,6 @@ export default class Session {
   div = document.createElement('div');
   innerHTML = "<button id='add-P'>Add Project</button>";
 
-  static currentSession;
-
-  static verifyLogin(username, password){
-    if(localStorage.getItem(username+'-session')){
-      Session.currentSession = JSON.parse(localStorage.getItem(username+'-session')); 
-      if(password==Session.currentSession.password){
-        alert('You can call it a day');
-        let div = document.createElement('div');
-        div.innerHTML = Session.currentSession.innerHTML;
-        console.log(div.innerHTML);
-        document.body.appendChild(div);
-      }else{
-        alert('Wrong password');
-      }
-    }else{
-      alert('User does not exit, do you want to sign up?');
-    }
-  }
-
-  static signUp(username, password){
-    let newUser = new Session(username,password);
-    newUser.saveSession();
-  }
-
-  static logOut(session){
-    session.saveSession();
-    document.getElementById(session.id).parentNode.removeChild(document.getElementById(session.id));
-    session = undefined;
-    alert('Logged out');
-  }
-
   constructor(username, password){
     this.username = username;
     this.password = password;
@@ -52,19 +21,14 @@ export default class Session {
     this.div.appendChild(this.logOutButton);
 
     document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
-    document.getElementById(this.logOutButton.id).addEventListener('click', ()=>{Session.logOut(this);});
+    document.getElementById(this.logOutButton.id).addEventListener('click', ()=>{this.logOut();});
   }
 
-  saveSession(){
-    //Can't save changes yet
-    if(!localStorage.getItem(this.username+'-session')){
-      localStorage.setItem(this.username+'-session', JSON.stringify(this));
-    }else{
-      localStorage.removeItem(this.username+'-session');
-      localStorage.setItem(this.username+'-session', JSON.stringify(this));
-    }
-  } 
- 
+  logOut(){
+    localStorage.setItem(Session.currentSession.username+'-session',JSON.stringify(this)); 
+    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
+    alert('Logged out');
+  }
 
   addProject(){
     this.data.push(new Project(this));
