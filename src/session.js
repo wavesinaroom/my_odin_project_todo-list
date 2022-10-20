@@ -21,11 +21,12 @@ export default class Session {
     this.div.appendChild(this.logOutButton);
 
     document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
-    document.getElementById(this.logOutButton.id).addEventListener('click', ()=>{this.logOut();});
+
   }
 
   logOut(){
-    localStorage.setItem(Session.currentSession.username+'-session',JSON.stringify(this)); 
+    localStorage.removeItem(this.id);
+
     document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
     alert('Logged out');
   }
