@@ -55,7 +55,6 @@ export default class Card {
                       "</select>",
                       "<textarea placeholder='Notes'></textarea>",
                       "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");
-      console.log(this.id);
       document.getElementById(this.id).innerHTML = innerHTML;
     }
 

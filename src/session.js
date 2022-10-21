@@ -1,9 +1,11 @@
+import LoginPanel from "./login-panel";
 import Project from "./project";
 
 export default class Session {
   data = [];
   div = document.createElement('div');
-  innerHTML = "<button id='add-P'>Add Project</button>";
+  innerHTML = ["<button id='add-P'>Add Project</button>",
+              "<button id='log-out'>Log Out</button>"].join('');
 
   constructor(username, password){
     this.username = username;
@@ -15,20 +17,11 @@ export default class Session {
     this.div.innerHTML = this.innerHTML;
     document.body.appendChild(this.div);
     
-    this.logOutButton = document.createElement('button');
-    this.logOutButton.id = 'logB';
-    this.logOutButton.innerHTML = 'Log out';
-    this.div.appendChild(this.logOutButton);
-
     document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
+    document.getElementById('log-out').addEventListener('click', ()=>{
+      LoginPanel.logOut(this.username, this.password, this.id, this.data, this.innerHTML)
+    });
 
-  }
-
-  logOut(){
-    localStorage.removeItem(this.id);
-
-    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
-    alert('Logged out');
   }
 
   addProject(){

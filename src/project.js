@@ -1,5 +1,3 @@
-import List from "./list";
-
 export default class Project {
 
   static ID = 0;
