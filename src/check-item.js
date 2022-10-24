@@ -1,47 +1,7 @@
-import Card from "./card";
-
-export default class ChecklistItem  {
-  static ID=0;
-  constructor(card){
-    this.card = card;
-    this.check = false;
-    this.description = "Description";
-    this.id = Card.ID+'-CHI'+ChecklistItem.checkItemID;
-
-    this.render = function (){
-      let innerHTML = ["<input type='checkbox'></input>",
-                       "<textarea>A card</textarea>",
+export default class ChecklistItem extends Component {
+  static count;
+  static id = 'CL-'+count;
+  innerHTML = ["<input type='checkbox'></input>",
+                       "<textarea placeholder = 'Check Item'></textarea>",
                        "<button id = 'delete-"+this.id+"'>Delete</button>"].join("");  
-      document.getElementById(this.id).innerHTML = innerHTML;
-    }
-    
-    let div = document.createElement('div');
-    div.id = this.id; 
-    div.className = 'checklist';
-    document.getElementById(this.card.id+'-CH').appendChild(div);
-    this.render();
-
-    
-    document.getElementById('delete-'+this.id).addEventListener('click', ()=>{this.deleteSelf();});
-    for(let i = 0; i<div.children.length-1; ++i){
-      div.children[i].addEventListener('focusout', ()=>{this.saveChanges();});
-    }
-  }
-  
-  deleteSelf(){
-    let position = 0;
-    while(position<this.card.checklist.length&&this.description!=this.card.checklist[position].description){
-      ++position;
-    }
-    this.card.checklist.splice(position,1);
-    document.getElementById(this.id).parentNode.removeChild(document.getElementById(this.id));
-  }
-
-  saveChanges(){
-    if(document.getElementById(this.id).children[0].value)
-      this.check = true;
-    else
-      this.check = false;
-    this.description = document.getElementById(this.id).children[1].value;
-  }
 }
