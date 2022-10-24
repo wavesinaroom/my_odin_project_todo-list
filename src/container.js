@@ -21,7 +21,7 @@ export default class Container extends Component{
       return id;
     }  
 
-    this.innertHTML += "<div 'id="+id+">"+child.innertHTML+"</div>";
+    this.innertHTML += "<div 'id="+id+" class="+child.type+">"+child.innertHTML+"</div>";
     document.getElementById(id+'-add-button').addEventListener('click', ()=>{child.addChild();});
     document.getElementById(id+'-remove-button').addEventListener('click', ()=>{child.removeChild(id);});
   }
