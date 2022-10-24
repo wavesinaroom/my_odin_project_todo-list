@@ -4,19 +4,22 @@ export default class Container extends Component{
   addChild(){
     
     id = ()=>{
+      let id;
       switch(child.type){
         case 'check-item':
-          div.id = ChecklistItem.id;
+          id = ChecklistItem.id;
           ChecklistItem.count++;
         case 'card':
-          div.id = Card.id;
+          id = Card.id;
           Card.count++;
         case 'list':
-          div.id = List.id;
+          id = List.id;
           List.count++;
         case 'project':
-          div.id = Project.id;
+          id = Project.id;
           Project.count++;
+        case 'session':
+          id = 'session';
       }
       return id;
     }  

@@ -1,36 +1,12 @@
-import LoginPanel from "./login-panel";
 import Project from "./project";
 
-export default class Session {
-  data = [];
+export default class Session extends Container{
+  type = 'session';
+  child = new Project();
   div = document.createElement('div');
-  innerHTML = ["<button id='add-P'>Add Project</button>",
-              "<button id='log-out'>Log Out</button>"].join('');
-
-  constructor(username, password){
-    this.username = username;
-    this.password = password;
-    this.id = username+'-session';
-
-    this.div.id = this.id; 
-    this.div.className = 'session';
-    this.div.innerHTML = this.innerHTML;
-    document.body.appendChild(this.div);
-    
-    document.getElementById(this.div.children[0].id).addEventListener('click', ()=>{this.addProject();});
-    document.getElementById('log-out').addEventListener('click', ()=>{
-      LoginPanel.logOut(this.username, this.password, this.id, this.data, this.innerHTML)
-    });
-
+  innerHTML = ["<H1>Call it a day!</H1>",
+              "<button id='session'>Add Project</button>"].join("");  
+  constructor(){
+    document.body.innerHTML = this.innerHTML;
   }
-
-  addProject(){
-    this.data.push(new Project(this));
-    ++Project.ID;
-  }
-
 }
-
-
-
-
