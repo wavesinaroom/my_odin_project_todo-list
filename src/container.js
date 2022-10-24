@@ -1,3 +1,4 @@
+import Component from './component.js';
 export default class Container extends Component{
   child;
 

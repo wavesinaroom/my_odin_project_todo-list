@@ -1,7 +1,8 @@
+import Container from './container.js';
 import ChecklistItem from "./check-item";
 export default class Card extends Container{
   static count;
-  static id = 'C-'+count;
+  static id = 'C-'+Card.count;
   type = 'card';
   child = new ChecklistItem();
       innerHTML = ["<textarea placeholder='Title'></textarea>",

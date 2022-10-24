@@ -1,7 +1,8 @@
+import Container from "./container";
 import List from "./list"
 export default class Project extends Container {
   static count;
-  static id = 'P-'+count;
+  static id = 'P-'+Project.count;
   type = 'project';
   child = new List();
   innerHTML = ["<textarea placeholder='Project title'></textarea>",

@@ -10,7 +10,9 @@ module.exports = {
     project: './src/project.js',
     session: './src/session.js',
     account: './src/account.js',
-    checklistitem: './src/check-item.js'
+    checklistitem: './src/check-item.js',
+    container: './src/container.js',
+    component: './src/component.js'
   }, 
   output: {
     filename: '[name].bundle.js',
