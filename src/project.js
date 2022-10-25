@@ -1,4 +1,6 @@
 import Container from "./container";
+import List from "./list";
+
 export default class Project extends Container {
   static count=0;
   static getId(){
@@ -7,8 +9,7 @@ export default class Project extends Container {
   constructor(){
     super();
     this.type = 'project';
-    this.innerHTML = ["<input type='text' placeholder='Project title'></input>",
-                "<button id='"+Project.getId()+"-add-button'>Add</button>",
-                "<button id='"+Project.getId()+"-remove-button'>Delete</button>"].join("");
+    this.child = new List();
+    this.innerHTML = ["<input type='text' placeholder='Project title'></input>"].join("");
   }
 }
