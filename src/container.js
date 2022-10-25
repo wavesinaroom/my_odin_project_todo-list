@@ -4,18 +4,18 @@ export default class Container extends Component{
   constructor(){
     super();
   }
-  addChild(node){
+  addChild(id){
     let div = document.createElement('div');
-    div.id = node.child.id;
-    div.className = node.child.type;
-    div.innerHTML = node.child.innerHTML;
-    node.div.appendChild(div);
+    div.id = id;
+    div.className = this.child.type;
+    div.innerHTML = this.child.innerHTML;
+    this.div.appendChild(div);
 
-   document.getElementById(node.child.id+'-add-button').addEventListener('click', ()=>{node.child.addChild(child);});
-   document.getElementById(node.child.id+'-remove-button').addEventListener('click', ()=>{node.child.removeChild(child.id);});
+   document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child);});
+   document.getElementById(id+'-remove-button').addEventListener('click', ()=>{this.child.removeChild(id);});
   }
 
   removeChild(id){
-    document.getElementById(id).parentNode.removeChild(id); 
+    document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
   }
 }

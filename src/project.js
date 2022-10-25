@@ -1,12 +1,14 @@
 import Container from "./container";
 export default class Project extends Container {
-  static count;
-  static id = 'P-'+Project.count;
+  static count=0;
+  static getId(){
+    return 'P-'+Project.count;
+  }
   constructor(){
     super();
     this.type = 'project';
-    this.innerHTML = ["<textarea placeholder='Project title'></textarea>",
-                "<button id='"+Project.id+"-add-button'>Add</button>",
-                "<button id'"+Project.id+"-remove-button'>Delete</button>"].join("");
+    this.innerHTML = ["<input type='text' placeholder='Project title'></input>",
+                "<button id='"+Project.getId()+"-add-button'>Add</button>",
+                "<button id='"+Project.getId()+"-remove-button'>Delete</button>"].join("");
   }
 }
