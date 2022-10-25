@@ -12,4 +12,8 @@ export default class Project extends Container {
     this.child = new List();
     this.innerHTML = ["<input type='text' placeholder='Project title'></input>"].join("");
   }
+  addChild(){
+    super.addChild(List.getId());
+    ++List.count;
+  }
 }
