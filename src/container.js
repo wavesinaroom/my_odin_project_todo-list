@@ -1,33 +1,18 @@
 import Component from './component.js';
+
 export default class Container extends Component{
-  child;
+  constructor(){
+    super();
+  }
+  addChild(node){
+    let div = document.createElement('div');
+    div.id = node.child.id;
+    div.className = node.child.type;
+    div.innerHTML = node.child.innerHTML;
+    node.div.appendChild(div);
 
-  addChild(){
-    
-    id = ()=>{
-      let id;
-      switch(child.type){
-        case 'check-item':
-          id = ChecklistItem.id;
-          ChecklistItem.count++;
-        case 'card':
-          id = Card.id;
-          Card.count++;
-        case 'list':
-          id = List.id;
-          List.count++;
-        case 'project':
-          id = Project.id;
-          Project.count++;
-        case 'session':
-          id = 'session';
-      }
-      return id;
-    }  
-
-    this.innertHTML += "<div 'id="+id+" class="+child.type+">"+child.innertHTML+"</div>";
-    document.getElementById(id+'-add-button').addEventListener('click', ()=>{child.addChild();});
-    document.getElementById(id+'-remove-button').addEventListener('click', ()=>{child.removeChild(id);});
+   document.getElementById(node.child.id+'-add-button').addEventListener('click', ()=>{node.child.addChild(child);});
+   document.getElementById(node.child.id+'-remove-button').addEventListener('click', ()=>{node.child.removeChild(child.id);});
   }
 
   removeChild(id){

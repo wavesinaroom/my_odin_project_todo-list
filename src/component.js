@@ -1,5 +1,8 @@
 export default class Component{
-  innertHTML;
-  type;
+  constructor(){
+    this.div = document.createElement('div');
+    this.innerHTML = "";
+    this.type = "";
+  }
 }
 

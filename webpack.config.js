@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry:{
+    container: './src/container.js',
+    component: './src/component.js',
     index: './src/index.js',
     card: './src/card.js',
     list: './src/list.js',
@@ -10,9 +12,7 @@ module.exports = {
     project: './src/project.js',
     session: './src/session.js',
     account: './src/account.js',
-    checklistitem: './src/check-item.js',
-    container: './src/container.js',
-    component: './src/component.js'
+    checklistitem: './src/check-item.js'
   }, 
   output: {
     filename: '[name].bundle.js',
