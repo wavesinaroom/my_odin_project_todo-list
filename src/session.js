@@ -5,16 +5,23 @@ import Project from "./project.js";
 import Container from "./container.js";
 
 export default class Session extends Container{
-  constructor(){
+  constructor(username){
     super();
+    this.username = username;
     this.globalValues = [ChecklistItem.count, Card.count, List.count, Project.count];
     this.child = new Project();
     this.type = 'session';
     this.innerHTML = ["<H1>Call it a day!</H1>",
-                "<button id='session-add-button'>Add Project</button>"].join("");  
+                "<button id='session-add-button'>Add Project</button>",
+                "<button id='logout'>Log out</button>"].join("");  
     this.div.innerHTML = this.innerHTML;
+    this.div.id = this.username+'-session';
     document.body.appendChild(this.div);
+
     document.getElementById('session-add-button').addEventListener('click', ()=>{this.addChild(Project.getId());
     ++Project.count;});
+    document.getElementById('logout').addEventListener('click', ()=>{
+      localStorage.setItem(username+'-session', JSON.stringify(this.div.innerHTML));
+    });
   }
 }
