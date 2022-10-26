@@ -2,18 +2,19 @@ import Container from "./container.js";
 import ChecklistItem from "./check-item.js";
 
 export default class Card extends Container{
-  static count;
-  static id = 'C-'+Card.count;
+  static count=0;
+  static getId(){
+    return 'C-'+Card.count;
+  }
 
   constructor(){
     super();
     this.child = new ChecklistItem();
     this.type = 'card';
-    this.innerHTML = ["<textarea placeholder='Title'></textarea>",
+    this.innerHTML = ["<input type='text' placeholder='Title'></input>",
                 "<textarea placeholder='Description'></textarea>",
                 "<input type='date' placeholder='2022-10-10'></input>",
                 "<section>",
-                "<button id='"+Card.id+"-add-button'>Add</button>",
                 "</section>",
                 "<select name='priority'>",
                 "<option>Low</option>",
@@ -24,7 +25,11 @@ export default class Card extends Container{
                 "<option>Done</option>'", 
                 "<option>In progress</option>'", 
                 "</select>",
-                "<textarea placeholder='Notes'></textarea>",
-                "<button id'"+Card.id+"-remove-button'>Delete</button>"].join(""); 
+                "<textarea placeholder='Notes'></textarea>"].join(""); 
   }
+  addChild(){
+    super.addChild(ChecklistItem.getId());
+    ++ChecklistItem.count;
+  }
+
 } 

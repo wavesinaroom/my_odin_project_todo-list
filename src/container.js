@@ -10,22 +10,25 @@ export default class Container extends Component{
     childDiv.className = this.child.type;
     childDiv.innerHTML = this.child.innerHTML;
     this.child.div = childDiv;
+    this.div.appendChild(childDiv);
     
-    let add = document.createElement('button');
-    add.id = id+'-add-button';
-    childDiv.appendChild(add);
+    if(this.child.type!='check-list'){
+      let add = document.createElement('button');
+      add.id = id+'-add-button';
+      childDiv.appendChild(add);
+      document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child);});
+    }
 
     let remove = document.createElement('button');
     remove.id = id+'-remove-button'; 
     childDiv.appendChild(remove);
 
-    this.div.appendChild(childDiv);
 
-   document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child);});
-   document.getElementById(id+'-remove-button').addEventListener('click', ()=>{this.child.removeChild(id);});
+   document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
+    document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
+    });    
   }
 
   removeChild(id){
-    document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
   }
 }

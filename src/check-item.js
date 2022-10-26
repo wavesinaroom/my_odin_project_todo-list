@@ -1,13 +1,14 @@
 import Component from './component.js';
 export default class ChecklistItem extends Component {
-  static count;
-  static id = 'CL-'+ChecklistItem.count;
+  static count=0;
+  static getId() { 
+    return 'CL-'+ChecklistItem.count;
+  }
 
   constructor(){
     super();
     this.type = 'check-list';
     this.innerHTML = ["<input type='checkbox'></input>",
-               "<textarea placeholder = 'Check Item'></textarea>",
-               "<button id'"+ChecklistItem.id+"-remove-button'>Delete</button>"].join(""); 
+               "<input type='text' placeholder = 'Check Item'></input>"].join(""); 
   }  
 }

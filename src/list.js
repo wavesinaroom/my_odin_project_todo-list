@@ -1,4 +1,5 @@
 import Container from "./container.js";
+import Card from "./card.js";
 export default class List extends Container{
   static count = 0;
   static getId(){
@@ -8,6 +9,11 @@ export default class List extends Container{
   constructor(){
     super();
     this.type = 'list';
-    this.innerHTML = "<textarea placeholder='List Title'></textarea>";
+    this.child = new Card();
+    this.innerHTML = "<input type='text' placeholder='List Title'></input>";
+  }
+  addChild(){
+    super.addChild(Card.getId());
+    ++Card.count;
   }
 }
