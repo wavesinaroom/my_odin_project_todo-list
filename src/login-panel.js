@@ -1,15 +1,15 @@
 import Session from "./session";
 export default class LoginPanel{
 
-  static logOut (username, password, id, data, innerHTML){
-    localStorage.removeItem(id);
-    let logOutSession = new Session(username, password);
-    logOutSession.id = id;
-    logOutSession.data = data;
-    logOutSession.innerHTML = innerHTML;
-    localStorage.setItem(id+'-data', JSON.stringify(logOutSession.data));
-    localStorage.setItem(id+'-HTML', JSON.stringify(logOutSession.innerHTML));
-    document.getElementById(id).parentNode.removeChild(document.getElementById(id));
+  instance;
+  static getInstance(){
+    if(LoginPanel.instance = null)
+      LoginPanel.instance = new LoginPanel();
+    return LoginPanel.instance;
+  }
+
+  constructor(){
+
   }
 
   render(){
@@ -32,6 +32,14 @@ export default class LoginPanel{
     document.getElementById('panel').innerHTML = innerHTML;
 
     document.getElementById('login').addEventListener('click', ()=>{
+    this.checkUser();});
+  
+    document.getElementById('sign-up').addEventListener('click', ()=>{
+      this.signUp(); 
+    });
+  }
+    checkUser(){
+      
      if(localStorage.getItem(document.getElementById('usr').value+'-session')){
         let session = JSON.parse(localStorage.getItem(document.getElementById('usr').value+'-session')); 
         if(document.getElementById('pass').value==session.password){
@@ -43,9 +51,9 @@ export default class LoginPanel{
       }else{
         alert('User does not exit, do you want to sign up?');
       }
-    }); 
+    } 
 
-    document.getElementById('sign-up').addEventListener('click', ()=>{
+    signUp(){
       if(localStorage.getItem(document.getElementById('usr').value+'-session')){
         alert('Please login');
         return;
@@ -54,7 +62,6 @@ export default class LoginPanel{
         localStorage.setItem(session.id+'-data', JSON.stringify(session.data));
         localStorage.setItem(session.id+'-HTML', JSON.stringify(session.innerHTML));
       }
-    });
-  }
+    }
 }
 
