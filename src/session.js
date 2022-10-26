@@ -1,8 +1,10 @@
+import ChecklistItem from "./check-item.js";
 import Container from "./container.js";
 import Project from "./project.js";
 export default class Session extends Container{
   constructor(){
     super();
+    this.globalValues = [ChecklistItem.count, Card.count, List.count, Project.count];
     this.child = new Project();
     this.type = 'session';
     this.innerHTML = ["<H1>Call it a day!</H1>",

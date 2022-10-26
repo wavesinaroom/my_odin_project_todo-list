@@ -1,11 +1,11 @@
 import Session from "./session";
-export default class LoginPanel{
+export default class Login{
 
-  instance;
+  static instance;
   static getInstance(){
-    if(LoginPanel.instance = null)
-      LoginPanel.instance = new LoginPanel();
-    return LoginPanel.instance;
+    if(Login.instance = null)
+      Login.instance = new Login();
+    return Login.instance;
   }
 
   constructor(){
@@ -32,17 +32,18 @@ export default class LoginPanel{
     document.getElementById('panel').innerHTML = innerHTML;
 
     document.getElementById('login').addEventListener('click', ()=>{
-    this.checkUser();});
+      this.checkUser()
+    ;});
   
     document.getElementById('sign-up').addEventListener('click', ()=>{
       this.signUp(); 
     });
   }
+
     checkUser(){
-      
-     if(localStorage.getItem(document.getElementById('usr').value+'-session')){
-        let session = JSON.parse(localStorage.getItem(document.getElementById('usr').value+'-session')); 
-        if(document.getElementById('pass').value==session.password){
+     if(localStorage.getItem(document.getElementById('usr').value)){
+        let password = JSON.parse(localStorage.getItem(document.getElementById('user').value));
+        if(document.getElementById('pass').value==password){
           //render session content to html here!
           alert('You can call it a day');
         }else{
