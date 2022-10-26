@@ -1,12 +1,6 @@
 import Session from "./session";
 export default class Login{
 
-  static instance;
-  static getInstance(){
-    if(Login.instance = null)
-      Login.instance = new Login();
-    return Login.instance;
-  }
 
   constructor(){
 
@@ -42,26 +36,24 @@ export default class Login{
 
     checkUser(){
      if(localStorage.getItem(document.getElementById('usr').value)){
-        let password = JSON.parse(localStorage.getItem(document.getElementById('user').value));
+        let password = JSON.parse(localStorage.getItem(document.getElementById('usr').value));
         if(document.getElementById('pass').value==password){
           //render session content to html here!
           alert('You can call it a day');
         }else{
-          alert('Wrong password');
+          document.getElementById('login-prompt').innerHTML = 'Wrong password'; 
         }
       }else{
-        alert('User does not exit, do you want to sign up?');
+        document.getElementById('login-prompt').innerHTML = 'User does not exit, do you want to sign up?';
       }
     } 
 
     signUp(){
-      if(localStorage.getItem(document.getElementById('usr').value+'-session')){
-        alert('Please login');
+      if(localStorage.getItem(document.getElementById('usr').value)){
+        document.getElementById('login-prompt').innerHTML = 'Please Login';
         return;
       }else{
-        let session = new Session(document.getElementById('usr').value,document.getElementById('pass').value);
-        localStorage.setItem(session.id+'-data', JSON.stringify(session.data));
-        localStorage.setItem(session.id+'-HTML', JSON.stringify(session.innerHTML));
+        localStorage.setItem(document.getElementById('usr').value, document.getElementById('pass').value);
       }
     }
 }

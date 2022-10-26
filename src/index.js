@@ -1,3 +1,5 @@
 import _ from 'lodash';
-import Session from './session';
-let session = new Session();
+import Login from './login-panel';
+
+let login = new Login();
+login.render();

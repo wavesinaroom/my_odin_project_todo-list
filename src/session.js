@@ -1,6 +1,9 @@
 import ChecklistItem from "./check-item.js";
-import Container from "./container.js";
+import Card from "./card.js";
+import List from "./list.js";
 import Project from "./project.js";
+import Container from "./container.js";
+
 export default class Session extends Container{
   constructor(){
     super();
