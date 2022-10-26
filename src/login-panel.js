@@ -27,11 +27,19 @@ export default class Login{
 
     document.getElementById('login').addEventListener('click', ()=>{
       this.username = document.getElementById('usr').value;
+      if(!this.username.trim()||!document.getElementById('pass').value.trim()){
+        document.getElementById('login-prompt').innerHTML = 'Please enter username/password'; 
+        return;
+      }
       this.checkUser(this.username);
     ;});
   
     document.getElementById('sign-up').addEventListener('click', ()=>{
       this.username = document.getElementById('usr').value;
+      if(!this.username.trim()||!document.getElementById('pass').value.trim()){
+        document.getElementById('login-prompt').innerHTML = 'Please enter username/password'; 
+        return;
+      }
       this.signUp(this.username); 
     });
   }
@@ -42,10 +50,8 @@ export default class Login{
         if(document.getElementById('pass').value==password){
           let session = new Session(username);
           document.body.removeChild(this.div);
-          //can't update session.innerHTML
           session.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
           document.getElementById(username+'-session').innerHTML = session.innerHTML;
-          alert('You can call it a day');
         }else{
           document.getElementById('login-prompt').innerHTML = 'Wrong password'; 
         }
