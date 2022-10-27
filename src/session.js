@@ -20,8 +20,5 @@ export default class Session extends Container{
 
     document.getElementById('session-add-button').addEventListener('click', ()=>{this.addChild(Project.getId());
     ++Project.count;});
-    document.getElementById('logout').addEventListener('click', ()=>{
-      localStorage.setItem(username+'-session', JSON.stringify(this.div.innerHTML));
-    });
   }
 }
