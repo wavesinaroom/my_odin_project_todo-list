@@ -78,18 +78,18 @@ export default class Login{
   }
 
   logOut(){
+    document.getElementById(this.session.username+'-session').dataset.checklist= ChecklistItem.count;
+    document.getElementById(this.session.username+'-session').dataset.card = Card.count;
+    document.getElementById(this.session.username+'-session').dataset.list = List.count;
+    document.getElementById(this.session.username+'-session').dataset.project = Project.count;
     localStorage.setItem(this.session.username+'-session', JSON.stringify(document.body.innerHTML));
-    this.session.globalValues[0] = ChecklistItem.count;
-    this.session.globalValues[1] = Card.count;
-    this.session.globalValues[2] = List.count;
-    this.session.globalValues[3] = Project.count;
-    localStorage.setItem(this.session.username+'-globals', this.session.globalValues); 
-    document.body.removeChild(document.getElementById(this.session.username+'-session'));
+
+    document.body.innerHTML='';
   }
 
   logIn(username){
+    document.body.innerHTML = '';
     this.session = new Session(username);
-    document.body.removeChild(this.div);
     this.session.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
     document.getElementById(username+'-session').innerHTML = this.session.innerHTML;
 
@@ -105,6 +105,12 @@ export default class Login{
       }
       inputs[i].value = inputs[i].dataset.storage; 
     }
+
+    ChecklistItem.count = document.getElementsById(this.session.username+'-session').dataset.checklist;
+    
+    Card.count = document.getElementsById(this.session.username+'-session').dataset.card;
+    List.count = document.getElementsById(this.session.username+'-session').dataset.list;
+    Project.count = document.getElementsById(this.session.username+'-session').dataset.project;
   }      
 }
 
