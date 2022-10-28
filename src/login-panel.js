@@ -53,14 +53,7 @@ export default class Login{
    if(localStorage.getItem(document.getElementById('usr').value)){
       let password = JSON.parse(localStorage.getItem(document.getElementById('usr').value));
       if(document.getElementById('pass').value==password){
-        this.session = new Session(username);
-        document.body.removeChild(this.div);
-        this.session.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
-        document.getElementById(username+'-session').innerHTML = this.session.innerHTML;
-        document.getElementById('logout').addEventListener('click', ()=>{
-          this.logOut(); 
-          this.render();
-        });
+        this.logIn(username);
       }else{
         document.getElementById('login-prompt').innerHTML = 'Wrong password'; 
       }
@@ -94,5 +87,22 @@ export default class Login{
     localStorage.setItem(this.session.username+'-globals', this.session.globalValues); 
     document.body.removeChild(document.getElementById(this.session.username+'-session'));
   }
+
+  logIn(username){
+    this.session = new Session(username);
+    document.body.removeChild(this.div);
+    this.session.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
+    document.getElementById(username+'-session').innerHTML = this.session.innerHTML;
+
+    document.getElementById('logout').addEventListener('click', ()=>{
+      this.logOut(); 
+      this.render();
+    });
+
+    let inputs = childDiv.getElementsByClassName('input');
+    for(let i=0; i<inputs.length; ++i){ 
+       inputs[i].value = inputs[i].dataset.storage; 
+    }
+  }      
 }
 

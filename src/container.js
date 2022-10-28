@@ -23,9 +23,15 @@ export default class Container extends Component{
     remove.id = id+'-remove-button'; 
     childDiv.appendChild(remove);
 
-
    document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
     document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
     });    
+
+    let inputs = childDiv.getElementsByClassName('input');
+    for(let i=0; i<inputs.length; ++i){ 
+     inputs[i].addEventListener('input', ()=>{
+       alert(inputs[i].value);
+       inputs[i].dataset.storage = inputs[i].value;});
+    }
   }
 }
