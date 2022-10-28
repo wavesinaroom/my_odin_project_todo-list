@@ -100,8 +100,8 @@ export default class Login{
 
     let inputs = document.getElementsByClassName('input');
     for(let i=0; i<inputs.length; ++i){ 
-      if(inputs[0].id == 'checkbox'&&inputs[0].dataset.storage=='on'){
-        inputs[0].checked = true;
+      if(inputs[i].id == 'checkbox'&&inputs[i].dataset.storage=='on'){
+        inputs[i].checked = true;
       }
       inputs[i].value = inputs[i].dataset.storage; 
     }
