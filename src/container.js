@@ -30,7 +30,6 @@ export default class Container extends Component{
     let inputs = childDiv.getElementsByClassName('input');
     for(let i=0; i<inputs.length; ++i){ 
      inputs[i].addEventListener('input', ()=>{
-       alert(inputs[i].value);
        inputs[i].dataset.storage = inputs[i].value;});
     }
   }

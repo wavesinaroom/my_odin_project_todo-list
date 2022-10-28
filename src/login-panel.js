@@ -99,7 +99,8 @@ export default class Login{
       this.render();
     });
 
-    let inputs = childDiv.getElementsByClassName('input');
+    let inputs = document.getElementsByClassName('input');
+    console.count(inputs);
     for(let i=0; i<inputs.length; ++i){ 
        inputs[i].value = inputs[i].dataset.storage; 
     }
