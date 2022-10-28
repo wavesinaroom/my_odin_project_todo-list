@@ -78,7 +78,6 @@ export default class Login{
   }
 
   logOut(){
-    alert('Yeah');
     localStorage.setItem(this.session.username+'-session', JSON.stringify(document.body.innerHTML));
     this.session.globalValues[0] = ChecklistItem.count;
     this.session.globalValues[1] = Card.count;
@@ -100,9 +99,11 @@ export default class Login{
     });
 
     let inputs = document.getElementsByClassName('input');
-    console.count(inputs);
     for(let i=0; i<inputs.length; ++i){ 
-       inputs[i].value = inputs[i].dataset.storage; 
+      if(inputs[0].id == 'checkbox'&&inputs[0].dataset.storage=='on'){
+        inputs[0].checked = true;
+      }
+      inputs[i].value = inputs[i].dataset.storage; 
     }
   }      
 }

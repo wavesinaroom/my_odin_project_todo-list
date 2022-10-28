@@ -8,7 +8,7 @@ export default class ChecklistItem extends Component {
   constructor(){
     super();
     this.type = 'check-list';
-    this.innerHTML = ["<input type='checkbox'></input>",
+    this.innerHTML = ["<input class='input' id='checkbox' data-storage='' type='checkbox'></input>",
                "<input class='input' data-storage='' type='text' placeholder = 'Check Item'></input>"].join(""); 
   }  
 }
