@@ -10,8 +10,8 @@ export default class Card extends Container{
   constructor(){
     super();
     this.child = new ChecklistItem();
-    this.type = 'card';
-    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Title'></input>",
+    this.div.className = 'card';
+    this.div.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Title'></input>",
                 "<textarea class='input' data-storage='' placeholder='Description'></textarea>",
                 "<input class='input' data-storage='' type='date' placeholder='2022-10-10'></input>",
                 "<select class='input' data-storage='' placeholder='Choose priority'>",

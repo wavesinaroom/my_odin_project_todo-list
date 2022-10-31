@@ -8,9 +8,9 @@ export default class Project extends Container {
   }
   constructor(){
     super();
-    this.type = 'project';
     this.child = new List();
-    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Project title'></input>"].join("");
+    this.div.className = 'project';
+    this.div.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Project title'></input>"].join("");
   }
   addChild(){
     super.addChild(List.getId());
