@@ -9,7 +9,12 @@ export default class List extends Container{
   constructor(){
     super();
     this.child = new Card();
-    this.div.className = 'list';
-    this.div.innerHTML = "<input class='input' data-storage='' type='text' placeholder='List Title'></input>";
+    this.className = 'list';
+    this.innerHTML = "<input class='input' data-storage='' type='text' placeholder='List Title'></input>";
+  }
+
+  addChild(parentId){
+    super.addChild(Card.getId(), parentId);
+    ++Card.count;
   }
 }

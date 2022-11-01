@@ -1,5 +1,6 @@
 export default class Component{
-    div = document.createElement('div');
+    className;
+    innerHTML; 
   constructor(){
   }
 }
