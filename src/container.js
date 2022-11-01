@@ -15,11 +15,10 @@ export default class Container extends Component{
       document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child, this.div.id);});
     }
 
-    let remove = document.createElement('button');
-    remove.id = id+'-remove-button'; 
+    this.child.div.innerHTML+="<button id='"+id+"-remove-button'></button>";
     this.child.div.appendChild(remove);
 
-   document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
+    document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
     document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
     });    
 
