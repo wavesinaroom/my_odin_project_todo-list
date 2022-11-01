@@ -6,15 +6,13 @@ export default class Session extends Container{
     super();
     this.username = username;
     this.child = new Project();
-    this.type = 'session';
-    this.innerHTML = ["<div id='"+this.username+"-session' data-checklist='' data-card='' data-list='' data-project''>",
+    this.div.innerHTML = ["<div id='"+this.username+"-session' class='session' data-checklist='' data-card='' data-list='' data-project''>",
                 "<H1>Call it a day!</H1>",
                 "<button id='session-add-button'>Add Project</button>",
                 "<button id='logout'>Log out</button>",
                 "</div>"].join("");  
-    this.div.innerHTML = this.innerHTML
-    document.body.append(this.div);
-    document.getElementById('session-add-button').addEventListener('click', ()=>{this.addChild(Project.getId());
+    document.body.innerHTML = this.div.innerHTML;
+    document.getElementById('session-add-button').addEventListener('click', ()=>{this.addChild(Project.getId(), this.username+'-session');
     ++Project.count;});
   }
 }

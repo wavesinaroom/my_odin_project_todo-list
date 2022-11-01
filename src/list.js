@@ -12,8 +12,4 @@ export default class List extends Container{
     this.div.className = 'list';
     this.div.innerHTML = "<input class='input' data-storage='' type='text' placeholder='List Title'></input>";
   }
-  addChild(){
-    super.addChild(Card.getId());
-    ++Card.count;
-  }
 }

@@ -25,9 +25,4 @@ export default class Card extends Container{
                 "</select>",
                 "<textarea class='input' data-storage=''placeholder='Notes'></textarea>"].join(""); 
   }
-  addChild(){
-    super.addChild(ChecklistItem.getId());
-    ++ChecklistItem.count;
-  }
-
 } 
