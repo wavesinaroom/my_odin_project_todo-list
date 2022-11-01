@@ -9,10 +9,11 @@ export default class Container extends Component{
   
     this.child.div.id = id;
     document.getElementById(parentId).appendChild(this.child.div); 
-    
+
     if(this.child.type!='check-list'){
       this.child.div.innerHTML+="<button id='"+id+"-add-button'></button>";
-      document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child, this.parentNode.id);});
+      document.getElementById(id+'-add-button').addEventListener('click', ()=>{this.child.addChild(this.child, this.parentNode.id);
+     });
     }
 
     this.child.div.innerHTML+="<button id='"+id+"-remove-button'></button>";

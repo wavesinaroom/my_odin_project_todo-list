@@ -11,8 +11,7 @@ module.exports = {
     login: './src/login-panel.js',
     project: './src/project.js',
     session: './src/session.js',
-    checklistitem: './src/check-item.js',
-    eventmanager: './src/event-manager.js'
+    checklistitem: './src/check-item.js'
   }, 
   output: {
     filename: '[name].bundle.js',
