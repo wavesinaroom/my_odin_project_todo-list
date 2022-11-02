@@ -14,13 +14,14 @@ export default class Container extends Component{
     document.getElementById(parentId).lastChild.className = this.child.className;
 
     if(document.getElementById(id).className!='check-list'){
-      document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'></button>";
-      document.getElementById(id+'-add-button').addEventListener('click', ()=>{
-       this.child.addChild(this.id);
+      document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'>Issue</button>";
+      document.getElementById(id+'-add-button').addEventListener('click', function(e){
+        alert('working');
+       this.child.addChild(e.target.id);
       });
     }
 
-    document.getElementById(id).innerHTML+="<button id='"+id+"-remove-button'></button>";
+    document.getElementById(id).innerHTML+="<button id='"+id+"-remove-button'>Delete</button>";
 
     document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
     document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 

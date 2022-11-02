@@ -14,7 +14,7 @@ export default class Session extends Container{
     document.body.innerHTML = this.innerHTML;
     document.getElementById('session-add-button').addEventListener('click', ()=>{
       this.addChild(this.username+"-session");
-    })
+    });
   }
 
   addChild(parentId){
