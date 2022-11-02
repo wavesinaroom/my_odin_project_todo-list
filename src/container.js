@@ -15,7 +15,8 @@ export default class Container extends Component{
 
     if(document.getElementById(id).className!='check-list'){
       document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'>Add</button>";
-      document.getElementById(parentId).lastChild.addEventListener('click', ()=>{
+      document.getElementById(parentId).lastChild.addEventListener('click', (e)=>{
+        e.stopPropagation();
         this.child.addChild(id);
       });
     }
