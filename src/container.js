@@ -6,26 +6,23 @@ export default class Container extends Component{
     super();
   }
   addChild(id, parentId){
-    alert(id);
-    alert(parentId);
+
     document.getElementById(parentId).appendChild(document.createElement('div')); 
     document.getElementById(parentId).lastChild.id = id;
     document.getElementById(parentId).lastChild.innerHTML = this.child.innerHTML;
     document.getElementById(parentId).lastChild.className = this.child.className;
 
-    if(document.getElementById(id).className!='check-list'){
+    if(this.child.className != 'check-list'){
       document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'>Add</button>";
-      document.getElementById(parentId).lastChild.addEventListener('click', (e)=>{
+      const add = document.getElementById(id+'-add-button');
+      add.addEventListener('click', (e)=>{
+        alert(e.currentTarget);
         e.stopPropagation();
         this.child.addChild(id);
       });
     }
 
-    document.getElementById(id).innerHTML+="<button id='"+id+"-remove-button'>Delete</button>";
-
-    document.getElementById(id+'-remove-button').addEventListener('click', ()=>{
-    document.getElementById(id).parentNode.removeChild(document.getElementById(id)); 
-    });    
+    this.removeSelf(id);
 
     let inputs = document.getElementById(parentId).getElementsByClassName('input');
     for(let i=0; i<inputs.length; ++i){ 

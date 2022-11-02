@@ -110,5 +110,10 @@ export default class Login{
     List.count = document.getElementById(this.session.username+'-session').dataset.list;
     Project.count = document.getElementById(this.session.username+'-session').dataset.project;
   }      
+  
+  updateEvents(){
+    //select all add buttons in the page
+    //Create a switch that assigns events accordingly
+  }
 }
 
