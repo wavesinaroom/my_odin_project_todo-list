@@ -7,6 +7,10 @@ export default class Login{
 
   username;
   session;
+  project = new Project();
+  list = new List();
+  card = new Card();
+  checklist = new ChecklistItem();
   constructor(){
     this.div = document.createElement('div');
   }
@@ -74,7 +78,7 @@ export default class Login{
         this.logOut(); 
         this.render();
       });
-  }
+    }
   }
 
   logOut(){
@@ -105,15 +109,31 @@ export default class Login{
       inputs[i].value = inputs[i].dataset.storage; 
     }
 
+    this.updateButtonEvents();
     ChecklistItem.count = document.getElementById(this.session.username+'-session').dataset.checklist;
     Card.count = document.getElementById(this.session.username+'-session').dataset.card;
     List.count = document.getElementById(this.session.username+'-session').dataset.list;
     Project.count = document.getElementById(this.session.username+'-session').dataset.project;
   }      
   
-  updateEvents(){
-    //select all add buttons in the page
-    //Create a switch that assigns events accordingly
+  updateButtonEvents(){
+    let addButtons = document.querySelectorAll('[id*="-add-button"]');
+    addButtons.forEach(button =>{
+      button.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        switch (button.parentNode.className){
+          case 'session':
+            this.session.addChild(this.session.username+'-session');
+          case 'project':
+           this.project.addChild(button.parentNode.id); 
+          case 'list':
+            this.list.addChild(button.parentNode.id);
+          case 'card':
+            this.card.addChild(button.parentNode.id);
+
+        }
+      });
+    });
   }
 }
 
