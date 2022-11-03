@@ -11,6 +11,7 @@ export default class Container extends Component{
     document.getElementById(parentId).lastChild.id = id;
     document.getElementById(parentId).lastChild.innerHTML = this.child.innerHTML;
     document.getElementById(parentId).lastChild.className = this.child.className;
+    let inputs = document.getElementById(parentId).getElementsByClassName('input');
 
     if(!document.getElementById(id).classList.contains('check-list')){
       document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'>Add</button>";
@@ -20,13 +21,11 @@ export default class Container extends Component{
 
     if(document.getElementById(id+'-add-button')){
       document.getElementById(id+'-add-button').addEventListener('click', (e)=>{
-        alert(e.currentTarget);
         e.stopPropagation();
         this.child.addChild(id);
       });
     }
 
-    let inputs = document.getElementById(parentId).getElementsByClassName('input');
     for(let i=0; i<inputs.length; ++i){ 
      inputs[i].addEventListener('input', ()=>{
        inputs[i].dataset.storage = inputs[i].value;});
