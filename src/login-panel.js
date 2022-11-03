@@ -7,10 +7,6 @@ export default class Login{
 
   username;
   session;
-  project = new Project();
-  list = new List();
-  card = new Card();
-  checklist = new ChecklistItem();
   constructor(){
     this.div = document.createElement('div');
   }
@@ -109,51 +105,17 @@ export default class Login{
       inputs[i].value = inputs[i].dataset.storage; 
     }
 
-    this.updateButtonEvents();
     ChecklistItem.count = document.getElementById(this.session.username+'-session').dataset.checklist;
     Card.count = document.getElementById(this.session.username+'-session').dataset.card;
     List.count = document.getElementById(this.session.username+'-session').dataset.list;
     Project.count = document.getElementById(this.session.username+'-session').dataset.project;
+    
+    this.updateButtonEvents();
   }      
   
   updateButtonEvents(){
-    let addButtons = document.querySelectorAll('[id*="-add-button"]');
-    addButtons.forEach(button =>{
-      button.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        switch (button.parentNode.className){
-          case 'session':
-            this.session.addChild(this.session.username+'-session');
-          case 'project':
-           this.project.addChild(button.parentNode.id); 
-          case 'list':
-            this.list.addChild(button.parentNode.id);
-          case 'card':
-            this.card.addChild(button.parentNode.id);
-          default:
-            return;
-        }
-      });
-    });
-    
-    let removeButtons = document.querySelectorAll('[id*="-remove-button"]');
-    removeButtons.forEach(button =>{
-      alert('Here')
-      button.addEventListener('click', (e)=>{
-        e.stopPropagation();
-        switch (button.parentNode.className){
-          case 'project':
-           this.project.removeSelf(button.id); 
-          case 'list':
-            this.list.removeSelf(button.id);
-          case 'card':
-            this.card.removeSelf(button.id);
-          case 'check-list':
-            this.checklist.removeSelf(button.id);
-          default:
-            return;
-        }
-      });
+    document.getElementById('session-add-button').addEventListener('click', ()=>{
+      this.session.addChild(this.session.username+"-session");
     });
   }
 }
