@@ -130,7 +130,28 @@ export default class Login{
             this.list.addChild(button.parentNode.id);
           case 'card':
             this.card.addChild(button.parentNode.id);
-
+          default:
+            return;
+        }
+      });
+    });
+    
+    let removeButtons = document.querySelectorAll('[id*="-remove-button"]');
+    removeButtons.forEach(button =>{
+      alert('Here')
+      button.addEventListener('click', (e)=>{
+        e.stopPropagation();
+        switch (button.parentNode.className){
+          case 'project':
+           this.project.removeSelf(button.id); 
+          case 'list':
+            this.list.removeSelf(button.id);
+          case 'card':
+            this.card.removeSelf(button.id);
+          case 'check-list':
+            this.checklist.removeSelf(button.id);
+          default:
+            return;
         }
       });
     });
