@@ -12,17 +12,19 @@ export default class Container extends Component{
     document.getElementById(parentId).lastChild.innerHTML = this.child.innerHTML;
     document.getElementById(parentId).lastChild.className = this.child.className;
 
-    if(this.child.className != 'check-list'){
+    if(!document.getElementById(id).classList.contains('check-list')){
       document.getElementById(id).innerHTML+="<button id='"+id+"-add-button'>Add</button>";
-      const add = document.getElementById(id+'-add-button');
-      add.addEventListener('click', (e)=>{
+    }
+
+    this.removeSelf(id);
+
+    if(document.getElementById(id+'-add-button')){
+      document.getElementById(id+'-add-button').addEventListener('click', (e)=>{
         alert(e.currentTarget);
         e.stopPropagation();
         this.child.addChild(id);
       });
     }
-
-    this.removeSelf(id);
 
     let inputs = document.getElementById(parentId).getElementsByClassName('input');
     for(let i=0; i<inputs.length; ++i){ 
