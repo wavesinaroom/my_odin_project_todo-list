@@ -152,11 +152,8 @@ export default class Login{
     });
 
     const removeButtons = document.querySelectorAll('[id*="-remove-button"]');
-    console.log(removeButtons.length);
-    console.count(removeButtons); 
 
     for(let r = 0; r<removeButtons.length; ++r){
-     console.log(removeButtons[r].id); 
       removeButtons[r].addEventListener('click', ()=>{
         document.getElementById(removeButtons[r].parentNode.id).parentNode.removeChild(document.getElementById(removeButtons[r].parentNode.id));
       }); 
