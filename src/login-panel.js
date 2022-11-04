@@ -123,11 +123,27 @@ export default class Login{
     let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
 
     for(let a = 1; a<addButtons.length; ++a){
-      if(addButtons[a].parentNode.className == 'project'){
+      if(addButtons[a].parentNode.className=='project'){
         addButtons[a].addEventListener('click', ()=>{
          project.addChild(addButtons[a].parentNode.id); 
         });
-      } 
+      }
+    }
+
+    for(let l = 1; l<addButtons.length; ++l){
+      if(addButtons[l].parentNode.className=='list'){
+        addButtons[l].addEventListener('click', ()=>{
+         list.addChild(addButtons[l].parentNode.id); 
+        });
+      }
+    }
+
+    for(let c = 1; c<addButtons.length; ++c){
+      if(addButtons[c].parentNode.className=='card'){
+        addButtons[c].addEventListener('click', ()=>{
+         card.addChild(addButtons[c].parentNode.id); 
+        });
+      }
     }
 
     document.getElementById('session-add-button').addEventListener('click', (e)=>{
