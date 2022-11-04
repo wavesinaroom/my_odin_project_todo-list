@@ -9,6 +9,6 @@
     super();
     this.className = 'check-list';
     this.innerHTML = ["<input class='input' id='checkbox' data-storage='' type='checkbox'></input>",
-               "<input class='input' data-storage='' type='text' placeholder = 'Check Item'></input>"].join(""); 
+               "<input class='input' data-storage='' type='text' placeholder = 'Check item title'></input>"].join(""); 
   }  
 }

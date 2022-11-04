@@ -11,7 +11,7 @@ export default class Card extends Container{
     super();
     this.child = new ChecklistItem();
     this.className = 'card';
-    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Title'></input>",
+    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Card title'></input>",
                 "<textarea class='input' data-storage='' placeholder='Description'></textarea>",
                 "<input class='input' data-storage='' type='date' placeholder='2022-10-10'></input>",
                 "<select class='input' data-storage='' placeholder='Choose priority'>",

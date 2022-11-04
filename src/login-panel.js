@@ -119,16 +119,17 @@ export default class Login{
     const list = new List();
     const card = new Card();
 
-    
-    document.getElementById('P-0-add-button').addEventListener('click', ()=>{
-      this.session.addChild(project.addChild('P-0'));
-    });
-    document.getElementById('L-0-add-button').addEventListener('click', ()=>{
-      this.session.addChild(list.addChild('L-0'));
-    });
-    document.getElementById('C-0-add-button').addEventListener('click', ()=>{
-      this.session.addChild(card.addChild('C-0'));
-    });
+    let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
+    alert(addButtons.length);
+
+    for(let a=0; a<addButtons.length; ++a){
+      if(addButtons[a].parentElement.className == 'project')
+        alert('project button')
+      addButtons[a].addEventListener('click', (e)=>{
+        e.stopPropagation();
+        project.addChild(addButtons[a].parentElement.id); 
+      });
+    }
   }
 }
 
