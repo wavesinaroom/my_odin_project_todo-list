@@ -119,14 +119,16 @@ export default class Login{
     const list = new List();
     const card = new Card();
     const checklist = new ChecklistItem();
-    //let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
-    document.getElementById('P-0-add-button').addEventListener('click', ()=>{
-      project.addChild(document.getElementById('P-0-add-button').parentNode.id);
-    });
 
-    document.getElementById('L-0-add-button').addEventListener('click', ()=>{
-      list.addChild(document.getElementById('L-0-add-button').parentNode.id);
-    });
+    let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
+
+    for(let a = 1; a<addButtons.length; ++a){
+      if(addButtons[a].parentNode.className == 'project'){
+        addButtons[a].addEventListener('click', ()=>{
+         project.addChild(addButtons[a].parentNode.id); 
+        });
+      } 
+    }
 
     document.getElementById('session-add-button').addEventListener('click', (e)=>{
       e.stopPropagation();
