@@ -118,9 +118,8 @@ export default class Login{
     const project = new Project(); 
     const list = new List();
     const card = new Card();
-    const checklist = new ChecklistItem();
 
-    let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
+    const addButtons = document.querySelectorAll('[id*="-add-button"]'); 
 
     for(let a = 1; a<addButtons.length; ++a){
       if(addButtons[a].parentNode.className=='project'){
@@ -151,6 +150,17 @@ export default class Login{
       e.stopPropagation();
       this.session.addChild(this.username+"-session");
     });
+
+    const removeButtons = document.querySelectorAll('[id*="-remove-button"]');
+    console.log(removeButtons.length);
+    console.count(removeButtons); 
+
+    for(let r = 0; r<removeButtons.length; ++r){
+     console.log(removeButtons[r].id); 
+      removeButtons[r].addEventListener('click', ()=>{
+        document.getElementById(removeButtons[r].parentNode.id).parentNode.removeChild(document.getElementById(removeButtons[r].parentNode.id));
+      }); 
+    }
   }
 }
 
