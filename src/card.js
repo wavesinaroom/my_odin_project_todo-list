@@ -27,7 +27,8 @@ export default class Card extends Container{
   }
 
   addChild(parentId){
-    super.addChild(ChecklistItem.getId(),parentId);
     ++ChecklistItem.count;
+    super.addChild(ChecklistItem.getId(),parentId);
+    alert(ChecklistItem.count);
   }
 } 

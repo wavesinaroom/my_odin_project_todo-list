@@ -130,6 +130,7 @@ export default class Login{
       }
     }
 
+    //Switch statement would reduce number of lines but it creates event propagation for an odd reason
     for(let l = 1; l<addButtons.length; ++l){
       if(addButtons[l].parentNode.className=='list'){
         addButtons[l].addEventListener('click', ()=>{
