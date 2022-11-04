@@ -19,12 +19,10 @@ export default class Container extends Component{
 
     this.removeSelf(id);
 
-    if(document.getElementById(id+'-add-button')){
-      document.getElementById(id+'-add-button').addEventListener('click', (e)=>{
-        e.stopPropagation();
-        this.child.addChild(id);
-      });
-    }
+    document.getElementById(id+'-add-button').addEventListener('click', (e)=>{
+      e.stopPropagation();
+      this.child.addChild(id);
+    });
 
     for(let i=0; i<inputs.length; ++i){ 
      inputs[i].addEventListener('input', ()=>{

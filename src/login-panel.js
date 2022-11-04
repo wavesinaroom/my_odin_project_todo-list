@@ -114,8 +114,20 @@ export default class Login{
   }      
   
   updateButtonEvents(){
-    document.getElementById('session-add-button').addEventListener('click', ()=>{
-      this.session.addChild(this.session.username+"-session");
+
+    const project = new Project(); 
+    const list = new List();
+    const card = new Card();
+
+    
+    document.getElementById('P-0-add-button').addEventListener('click', ()=>{
+      this.session.addChild(project.addChild('P-0'));
+    });
+    document.getElementById('L-0-add-button').addEventListener('click', ()=>{
+      this.session.addChild(list.addChild('L-0'));
+    });
+    document.getElementById('C-0-add-button').addEventListener('click', ()=>{
+      this.session.addChild(card.addChild('C-0'));
     });
   }
 }
