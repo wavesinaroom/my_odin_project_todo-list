@@ -115,11 +115,18 @@ export default class Login{
   
   updateButtonEvents(){
 
-    //const project = new Project(); 
-
-
+    const project = new Project(); 
+    const list = new List();
+    const card = new Card();
+    const checklist = new ChecklistItem();
     //let addButtons = document.querySelectorAll('[id*="-add-button"]'); 
+    document.getElementById('P-0-add-button').addEventListener('click', ()=>{
+      project.addChild(document.getElementById('P-0-add-button').parentNode.id);
+    });
 
+    document.getElementById('L-0-add-button').addEventListener('click', ()=>{
+      list.addChild(document.getElementById('L-0-add-button').parentNode.id);
+    });
 
     document.getElementById('session-add-button').addEventListener('click', (e)=>{
       e.stopPropagation();
