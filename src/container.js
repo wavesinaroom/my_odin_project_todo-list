@@ -16,7 +16,7 @@ export default class Container extends Component{
     let inputs = document.getElementById(parentId).getElementsByClassName('input');
 
     if(!document.getElementById(id).classList.contains('check-list')){
-      document.getElementById(id).firstChild.innerHTML+="<button id='"+id+"-add-button' >Add</button>";
+      document.getElementById(id).firstChild.innerHTML+="<button id='"+id+"-add-button' >+</button>";
     }
 
     this.removeSelf(id);
