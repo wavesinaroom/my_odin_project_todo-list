@@ -11,7 +11,10 @@ export default class Card extends Container{
     super();
     this.child = new ChecklistItem();
     this.className = 'card';
-    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Card title'></input>",
+    this.innerHTML = ["<div class='header'>",
+                "<input class='input' data-storage='' type='text' placeholder='Card title'></input>",
+                "</div>",
+                "<div class = 'content'>",
                 "<textarea class='input' data-storage='' placeholder='Description'></textarea>",
                 "<input class='input' data-storage='' type='date' placeholder='2022-10-10'></input>",
                 "<select class='input' data-storage='' placeholder='Choose priority'>",
@@ -23,12 +26,12 @@ export default class Card extends Container{
                 "<option>Done</option>'", 
                 "<option>In progress</option>'", 
                 "</select>",
-                "<textarea class='input' data-storage=''placeholder='Notes'></textarea>"].join(""); 
+                "<textarea class='input' data-storage=''placeholder='Notes'></textarea>",
+                "</div>"].join(""); 
   }
 
   addChild(parentId){
     ++ChecklistItem.count;
     super.addChild(ChecklistItem.getId(),parentId);
-    alert(ChecklistItem.count);
   }
 } 

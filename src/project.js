@@ -10,7 +10,7 @@ export default class Project extends Container {
     super();
     this.child = new List();
     this.className = 'project';
-    this.innerHTML = ["<input class='input' data-storage='' type='text' placeholder='Project title'></input>"].join("");
+    this.innerHTML = ["<div class='header'><input class='input' data-storage='' type='text' placeholder='Project title'></input></div><div class='content'></div>"].join("");
   }
 
   addChild(parentId){

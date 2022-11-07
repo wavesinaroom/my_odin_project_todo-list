@@ -120,28 +120,32 @@ export default class Login{
     const card = new Card();
 
     const addButtons = document.querySelectorAll('[id*="-add-button"]'); 
+    let buttonParent;
 
-    for(let a = 1; a<addButtons.length; ++a){
-      if(addButtons[a].parentNode.className=='project'){
-        addButtons[a].addEventListener('click', ()=>{
-         project.addChild(addButtons[a].parentNode.id); 
+    for(let p = 1; p<addButtons.length; ++p){
+      buttonParent = addButtons[p].parentNode; 
+      if(buttonParent.parentNode.className=='project'){
+        addButtons[p].addEventListener('click', ()=>{
+         project.addChild(addButtons[p].id.substring(0,addButtons[p].id.search('-add-button'))); 
         });
       }
     }
 
     //Switch statement would reduce number of lines but it creates event propagation for an odd reason
     for(let l = 1; l<addButtons.length; ++l){
-      if(addButtons[l].parentNode.className=='list'){
+      buttonParent = addButtons[l].parentNode;
+      if(buttonParent.parentNode.className=='list'){
         addButtons[l].addEventListener('click', ()=>{
-         list.addChild(addButtons[l].parentNode.id); 
+         list.addChild(addButtons[l].id.substring(0,addButtons[l].id.search('-add-button'))); 
         });
       }
     }
 
     for(let c = 1; c<addButtons.length; ++c){
-      if(addButtons[c].parentNode.className=='card'){
+      buttonParent = addButtons[c].parentNode;
+      if(buttonParent.parentNode.className=='card'){
         addButtons[c].addEventListener('click', ()=>{
-         card.addChild(addButtons[c].parentNode.id); 
+        card.addChild(addButtons[c].id.substring(0,addButtons[c].id.search('-add-button'))); 
         });
       }
     }
@@ -155,7 +159,7 @@ export default class Login{
 
     for(let r = 0; r<removeButtons.length; ++r){
       removeButtons[r].addEventListener('click', ()=>{
-        document.getElementById(removeButtons[r].parentNode.id).parentNode.removeChild(document.getElementById(removeButtons[r].parentNode.id));
+        document.getElementById(removeButtons[r].id.substring(0,removeButtons[r].id.search('-remove-button'))).parentNode.removeChild(document.getElementById(removeButtons[r].id.substring(0,removeButtons[r].id.search('-remove-button'))));
       }); 
     }
   }

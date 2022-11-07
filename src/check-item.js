@@ -8,7 +8,9 @@
   constructor(){
     super();
     this.className = 'check-list';
-    this.innerHTML = ["<input class='input' id='checkbox' data-storage='' type='checkbox'></input>",
-               "<input class='input' data-storage='' type='text' placeholder = 'Check item title'></input>"].join(""); 
+    this.innerHTML = ["<div id='header'>",
+               "<input class='input' id='checkbox' data-storage='' type='checkbox'></input>",
+               "<input class='input' data-storage='' type='text' placeholder = 'Check item title'></input>",
+    "</div>"].join(""); 
   }  
 }
