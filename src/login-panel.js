@@ -31,6 +31,7 @@ export default class Login{
   document.body.appendChild(this.div);
   document.getElementById('panel').innerHTML = innerHTML;
   document.getElementById('login-prompt').style.display = 'none';
+  document.body.style.background = "#d1df90";
 
   document.getElementById('login').addEventListener('click', ()=>{
     this.username = document.getElementById('usr').value;

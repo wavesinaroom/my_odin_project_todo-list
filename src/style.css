@@ -1,19 +1,31 @@
 body {
-  font-family: cursive;
+  font-family: Cambria;
   background: #323234;
-  color: white;
+  color: black;
 }
 
 #panel{
+  max-width: 25em;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+  top: 50%;
+  border-radius: 10px;
 }
 
 #panel > *{
-  margin: 2em;
+  margin: 1em;
 }
 
+#panel > :nth-child(2){
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#panel > p{
+  color: red;
+}
 .input{
   background: #323234;
   color: white;
