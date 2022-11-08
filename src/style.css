@@ -67,11 +67,19 @@ button:focus {
   color: red;
 }
 
-#panel .password >* {
+#panel .password{
+  margin-right: 2.5em;
+}
+
+#panel .username{
+  margin-right: 2.5em;
+}
+
+#panel .password >label {
   margin-right:0.5em;
 }
 
-#panel .username >* {
+#panel .username >label{
   margin-right: 0.5em;
 }
 
@@ -79,5 +87,56 @@ button:focus {
   margin-top: 1em;
   margin-right: 2em;
   margin-left:2em;
+  margin-bottom: 2em;
+}
+
+.session{
+  display: flex;
+  flex-direction: column;
+}
+
+.session .content{
+  display: flex;
+}
+
+.project {
+  border-radius: 10px;
+  padding: 1em;
+  margin: 0.5em;
+  background-color: white;
+}
+
+.list{
+  display:flex;
+  flex-direction: column;
+  padding: 0.5em;
+  margin: 0.3em;
+  border-color: gray;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.card{
+  display:flex;
+  flex-direction: column;
+  padding: 0.5em;
+  margin: 0.3em;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.card .content{
+  display: flex;
+  flex-direction:column;
+  align-items: flex-start;
+  padding: 0.4em;
+}
+
+.card .content > *{
+  margin: 0.3em;
 }
 

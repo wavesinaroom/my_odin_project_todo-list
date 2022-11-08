@@ -91,6 +91,8 @@ export default class Login{
     document.getElementById(this.session.username+'-session').dataset.project = Project.count;
     localStorage.setItem(this.session.username+'-session', JSON.stringify(document.body.innerHTML));
 
+    document.body.style.background = "#d1df90";
+
     document.body.innerHTML='';
   }
 
@@ -98,7 +100,8 @@ export default class Login{
     document.body.innerHTML = '';
     this.session = new Session(username);
     document.body.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
-    
+    document.body.style.background = "#690a0b"; 
+        
     document.getElementById('logout').addEventListener('click', ()=>{
       this.logOut(); 
       this.render();
