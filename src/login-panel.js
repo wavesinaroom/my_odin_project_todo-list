@@ -12,8 +12,7 @@ export default class Login{
   }
 
   render(){
-    let innerHTML = ["<h2>Call it a day</h2>",
-                    "<h4>Login</h4>",
+    let innerHTML = ["<h2 id ='title'>Call it a day</h2>",
                     "<p id = 'login-prompt'></p>",
                     "<div class ='username'>",
                     "<label for='user'>Username</label>",
@@ -23,16 +22,20 @@ export default class Login{
                     "<label for='password'>Password</label>",
                     "<input type='password' name='password' id = 'pass'>",
                     "</div>",
+                    "<div input='buttons'>",
                     "<button id='login'>Login</button>",
-                    "<button id='sign-up'>Sign up</button>"].join('');
+                    "<button id='sign-up'>Sign up</button>",
+                    "</div>"].join('');
   this.div = document.createElement('div');
   this.div.id = 'panel';
   document.body.appendChild(this.div);
   document.getElementById('panel').innerHTML = innerHTML;
+  document.getElementById('login-prompt').style.display = 'none';
 
   document.getElementById('login').addEventListener('click', ()=>{
     this.username = document.getElementById('usr').value;
     if(!this.username.trim()||!document.getElementById('pass').value.trim()){
+      document.getElementById('login-prompt').style.display = 'inline';
       document.getElementById('login-prompt').innerHTML = 'Please enter username/password'; 
       return;
     }
@@ -42,6 +45,7 @@ export default class Login{
   document.getElementById('sign-up').addEventListener('click', ()=>{
     this.username = document.getElementById('usr').value;
     if(!this.username.trim()||!document.getElementById('pass').value.trim()){
+      document.getElementById('login-prompt').style.display = 'inline';
       document.getElementById('login-prompt').innerHTML = 'Please enter username/password'; 
       return;
     }
@@ -55,9 +59,11 @@ export default class Login{
       if(document.getElementById('pass').value==password){
         this.logIn(username);
       }else{
+        document.getElementById('login-prompt').style.display = 'inline';
         document.getElementById('login-prompt').innerHTML = 'Wrong password'; 
       }
     }else{
+      document.getElementById('login-prompt').style.display = 'inline';
       document.getElementById('login-prompt').innerHTML = 'User does not exit, do you want to sign up?';
     }
   } 

@@ -4,6 +4,16 @@ body {
   color: white;
 }
 
+#panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#panel > *{
+  margin: 2em;
+}
+
 .input{
   background: #323234;
   color: white;
