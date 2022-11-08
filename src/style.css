@@ -18,7 +18,7 @@ input{
 }
 
 #panel{
-  height: 400px;
+  height: 300px;
   width: 500px;
   position: absolute;
   left: 55%;
@@ -39,9 +39,6 @@ input{
   color: red;
 }
 
-#panel h2 {
-  margin: 0.2em;
-}
 #panel .password{
   margin-top: 1em;
   margin-right: 6em;
