@@ -3,44 +3,6 @@ body {
   color: black;
 }
 
-#panel{
-  height: 500px;
-  width: 500px;
-  position: absolute;
-  left: 55%;
-  top: 40%;
-  margin-left: -250px;
-  margin-top: -250px;
-  max-width: 25em;
-  max-height: 20em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow:3px 3px grey;
-}
-
-#panel > *{ 
-  margin: 1em;
-}
-
-#panel > p{
-  color: red;
-}
-
-#panel .password >* {
-  margin-right:0.5em;
-}
-
-#panel .username >* {
-  margin-right: 0.5em;
-}
-
-#panel :nth-child(5)>*{
-  margin-right: 3em;
-}
-
 input{
   border-radius:5px;
 }
@@ -77,3 +39,45 @@ button:focus {
   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
   outline: 0;
 }
+
+#panel{
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  left: 55%;
+  top: 40%;
+  margin-left: -250px;
+  margin-top: -250px;
+  max-width: 25em;
+  max-height: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow:3px 3px grey;
+}
+
+#panel > *{ 
+  margin: 1em;
+}
+
+#panel > p{
+  transition: 500ms;
+  color: red;
+}
+
+#panel .password >* {
+  margin-right:0.5em;
+}
+
+#panel .username >* {
+  margin-right: 0.5em;
+}
+
+#panel :nth-child(5)>*{
+  margin-top: 1em;
+  margin-right: 2em;
+  margin-left:2em;
+}
+
