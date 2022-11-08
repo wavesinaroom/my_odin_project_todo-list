@@ -1,6 +1,7 @@
 body {
   font-family: Cambria;
   color: black;
+  background-image: url("./images/background.jpg");
 }
 
 input{
@@ -100,24 +101,49 @@ button:focus {
 }
 
 .project {
+  box-shadow:3px 3px grey;
   border-radius: 10px;
   padding: 1em;
-  margin: 0.5em;
-  background-color: white;
+  margin: 2em;
+  background-color: #f4f4f4;
+}
+
+.project .header{
+  margin-right: 2em;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  display: flex;
+  justify-content:flex-start; 
+}
+
+.project input{
+  margin-right: 2em;
+}
+
+.project button{
+  margin-right: 1em;
 }
 
 .list{
   display:flex;
   flex-direction: column;
-  padding: 0.5em;
-  margin: 0.3em;
+  padding: 1em;
+  margin: 1em;
+  margin-top: 0.25em;
   border-color: gray;
   border-style: solid;
   border-width: thin;
   border-radius: 10px;
-  background-color: white;
+  background-color: transparent;
 }
 
+.list .header{
+  margin-right: 2em;
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
 .card{
   display:flex;
   flex-direction: column;
@@ -126,7 +152,7 @@ button:focus {
   border-style: solid;
   border-width: thin;
   border-radius: 10px;
-  background-color: white;
+  background-color: transparent;
 }
 
 .card .content{
