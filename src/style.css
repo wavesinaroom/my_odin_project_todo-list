@@ -6,7 +6,6 @@
 }
 :root{
   font-family: MyFont, serif;
-  outline: solid 1px red;
   background-image: url("./images/background.jpg");
   background-repeat: no-repeat;
   color: black;
