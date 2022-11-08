@@ -1,82 +1,37 @@
 body {
   font-family: Cambria;
-  background: #323234;
   color: black;
 }
 
 #panel{
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  left: 55%;
+  top: 40%;
+  margin-left: -250px;
+  margin-top: -250px;
   max-width: 25em;
+  max-height: 20em;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: white;
-  top: 50%;
   border-radius: 10px;
 }
 
-#panel > *{
+#panel > *{ 
   margin: 1em;
-}
-
-#panel > :nth-child(2){
-  display: flex;
-  justify-content: space-evenly;
 }
 
 #panel > p{
   color: red;
 }
-.input{
-  background: #323234;
-  color: white;
-  font-family: cursive;
-  border-width: thin;
-  border-radius: 5px;
-}
-.session{
-  display: flex;
-  flex-direction: column;
+
+#panel .password >* {
+  margin-right:0.5em;
 }
 
-.session .content{
-  display: flex;
-}
-
-.project {
-  border-radius: 10px;
-  padding: 1em;
-  margin: 0.5em;
-  
-}
-
-.list{
-  display:flex;
-  flex-direction: column;
-  padding: 0.5em;
-  margin: 0.3em;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-  
-}
-
-.card{
-  display:flex;
-  flex-direction: column;
-  padding: 0.5em;
-  margin: 0.3em;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-}
-
-.card .content{
-  display: flex;
-  flex-direction:column;
-  align-items: flex-start;
-  padding: 0.4em;
-}
-
-.card .content > *{
-  margin: 0.3em;
+#panel .username >* {
+  margin-right: 0.5em;
 }
