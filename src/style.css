@@ -1,48 +1,24 @@
-body {
-  font-family: Cambria;
-  color: black;
+@font-face{
+  font-family: 'MyFont'; 
+      src: url('./fonts/PlayfairDisplay-VariableFont_wght.ttf');
+  font-weight: bolder; 
+  font-style: normal;
+}
+:root{
+  font-family: MyFont, serif;
+  outline: solid 1px red;
   background-image: url("./images/background.jpg");
+  background-repeat: no-repeat;
+  color: black;
+  font-size: 1.2vmin;
 }
 
 input{
-  border-radius:5px;
-}
-
-button{
-  background-color: #fff;
-  border: 1px solid #d5d9d9;
-  border-radius: 8px;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  box-sizing: border-box;
-  color: #0f1111;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Amazon Ember",sans-serif;
-  font-size: 13px;
-  line-height: 29px;
-  padding: 0 10px 0 11px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-  width: 100px;
-}
-
-button:hover {
-  background-color: #f7fafa;
-}
-
-button:focus {
-  border-color: #008296;
-  box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
-  outline: 0;
+  border-radius: 5px;
 }
 
 #panel{
-  height: 500px;
+  height: 400px;
   width: 500px;
   position: absolute;
   left: 55%;
@@ -54,34 +30,34 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow:3px 3px grey;
+  background-color:white;
+  padding: 3em;
+  border-radius: 15px;
 }
 
-#panel > *{ 
-  margin: 1em;
-}
-
-#panel > p{
-  transition: 500ms;
+#panel p{
   color: red;
 }
 
+#panel h2 {
+  margin: 0.2em;
+}
 #panel .password{
-  margin-right: 2.5em;
+  margin-top: 1em;
+  margin-right: 6em;
+  margin-bottom: 1em;
 }
 
 #panel .username{
-  margin-right: 2.5em;
+  margin-right: 5.7em;
 }
 
-#panel .password >label {
-  margin-right:0.5em;
+#panel .username > label{
+  margin-right: 1em;
 }
 
-#panel .username >label{
-  margin-right: 0.5em;
+#panel .password > label{
+  margin-right: 1.5em;
 }
 
 #panel :nth-child(5)>*{
@@ -89,80 +65,5 @@ button:focus {
   margin-right: 2em;
   margin-left:2em;
   margin-bottom: 2em;
-}
-
-.session{
-  display: flex;
-  flex-direction: column;
-}
-
-.session .content{
-  display: flex;
-}
-
-.project {
-  box-shadow:3px 3px grey;
-  border-radius: 10px;
-  padding: 1em;
-  margin: 2em;
-  background-color: #f4f4f4;
-}
-
-.project .header{
-  margin-right: 2em;
-  margin-left: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-  display: flex;
-  justify-content:flex-start; 
-}
-
-.project input{
-  margin-right: 2em;
-}
-
-.project button{
-  margin-right: 1em;
-}
-
-.list{
-  display:flex;
-  flex-direction: column;
-  padding: 1em;
-  margin: 1em;
-  margin-top: 0.25em;
-  border-color: gray;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-  background-color: transparent;
-}
-
-.list .header{
-  margin-right: 2em;
-  margin-left: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 1em;
-}
-.card{
-  display:flex;
-  flex-direction: column;
-  padding: 0.5em;
-  margin: 0.3em;
-  border-style: solid;
-  border-width: thin;
-  border-radius: 10px;
-  background-color: transparent;
-}
-
-.card .content{
-  display: flex;
-  flex-direction:column;
-  align-items: flex-start;
-  padding: 0.4em;
-}
-
-.card .content > *{
-  margin: 0.3em;
 }
 
