@@ -63,3 +63,17 @@ input{
   margin-bottom: 2em;
 }
 
+.session .content{
+  background-color: purple;
+  display: flex;
+}
+
+.project{
+  margin: 1em;
+}
+
+.card .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
