@@ -11,7 +11,7 @@ export default class Card extends Container{
     super();
     this.child = new ChecklistItem();
     this.className = 'card';
-    this.innerHTML = ["<div class='card-header'>",
+    this.innerHTML = ["<div class='header'>",
                 "<input class='input' data-storage='' type='text' placeholder='Card title'></input>",
                 "</div>",
                 "<div class = 'content'>",

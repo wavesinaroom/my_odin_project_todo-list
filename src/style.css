@@ -63,6 +63,12 @@ input{
   margin-bottom: 2em;
 }
 
+.header {
+  margin-top: 0.2em;
+}
+.header > * {
+  margin-right: 1em;
+}
 .session .content{
   background-color: purple;
   display: flex;
@@ -91,3 +97,9 @@ input{
   margin: 1em;
   margin-bottom: 0.2em;
 }
+
+.card > .content > .check-list {
+  background-color: yellowgreen;
+  margin-top: 0em;
+}
+
