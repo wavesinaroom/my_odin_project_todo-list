@@ -70,11 +70,20 @@ textarea{
 .header {
   margin-top: 0.2em;
 }
+
 .header > * {
   margin-right: 1em;
 }
+
 .session .content{
   display: flex;
+}
+
+.session  button{
+  background-color: transparent;
+  color: white;
+  font-size: 1.05em;
+  border-style: none;
 }
 
 .project{
