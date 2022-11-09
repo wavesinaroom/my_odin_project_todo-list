@@ -9,7 +9,7 @@ export default class Session extends Container{
     this.innerHTML = ["<div id='"+this.username+"-session' class='session' data-checklist='' data-card='' data-list='' data-project''>",
                 "<div class='header'>",
                 "<button id='session-add-button'>+</button>",
-                "<button id='logout'></button>",
+                "<button id='logout'>Log Out</button>",
                 "</div>",
                 "<div class='content'>",
                 "</div>",
