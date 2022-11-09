@@ -152,6 +152,9 @@ textarea{
   margin-bottom: 0.2em;
 }
 
+.card > .content > .check-list{
+  margin-top: 0em;
+}
 .card > .content > .check-list :nth-child(3){
   margin-right: 0.3em;
 }
