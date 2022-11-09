@@ -72,6 +72,13 @@ input{
   margin: 1em;
 }
 
+.list{
+  margin-left: 0.5em;
+}
+
+.card{
+  margin-left: 0.5em;
+}
 .card > .content{
   background-color: red;
   display: flex;
