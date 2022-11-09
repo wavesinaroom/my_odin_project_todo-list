@@ -97,27 +97,29 @@ export default class Login{
   logIn(username){
     document.body.innerHTML = '';
     this.session = new Session(username);
-    document.body.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
-        
     document.getElementById('logout').addEventListener('click', ()=>{
       this.logOut(); 
       this.render();
     });
-
-    let inputs = document.getElementsByClassName('input');
-    for(let i=0; i<inputs.length; ++i){ 
-      if(inputs[i].id == 'checkbox'&&inputs[i].dataset.storage=='on'){
-        inputs[i].checked = true;
+    if(localStorage.getItem(username+'-session')){
+      document.body.innerHTML = JSON.parse(localStorage.getItem(username+'-session'));
+      let inputs = document.getElementsByClassName('input');
+      for(let i=0; i<inputs.length; ++i){ 
+        if(inputs[i].id == 'checkbox'&&inputs[i].dataset.storage=='on'){
+          inputs[i].checked = true;
+        }
+        inputs[i].value = inputs[i].dataset.storage; 
       }
-      inputs[i].value = inputs[i].dataset.storage; 
-    }
 
-    ChecklistItem.count = document.getElementById(this.session.username+'-session').dataset.checklist;
-    Card.count = document.getElementById(this.session.username+'-session').dataset.card;
-    List.count = document.getElementById(this.session.username+'-session').dataset.list;
-    Project.count = document.getElementById(this.session.username+'-session').dataset.project;
-    
-    this.updateButtonEvents();
+      ChecklistItem.count = document.getElementById(this.session.username+'-session').dataset.checklist;
+      Card.count = document.getElementById(this.session.username+'-session').dataset.card;
+      List.count = document.getElementById(this.session.username+'-session').dataset.list;
+      Project.count = document.getElementById(this.session.username+'-session').dataset.project;
+      
+      this.updateButtonEvents();
+    }
+        
+
   }      
   
   updateButtonEvents(){

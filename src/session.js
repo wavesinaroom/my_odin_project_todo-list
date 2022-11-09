@@ -8,8 +8,8 @@ export default class Session extends Container{
     this.child = new Project();
     this.innerHTML = ["<div id='"+this.username+"-session' class='session' data-checklist='' data-card='' data-list='' data-project''>",
                 "<div class='header'>",
-                "<button id='session-add-button'>Add Project</button>",
-                "<button id='logout'>Log out</button>",
+                "<button id='session-add-button'>+</button>",
+                "<button id='logout'></button>",
                 "</div>",
                 "<div class='content'>",
                 "</div>",
