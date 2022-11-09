@@ -14,10 +14,12 @@
 
 input{
   border-radius: 5px;
+  padding: 0.3em;
 }
 
 textarea{
   border-radius: 5px;
+  padding: 0.3em;
 }
 
 #panel{
@@ -95,12 +97,48 @@ textarea{
   background-color: rgba(255,165,0,0.5);
 }
 
+.project > .header :nth-child(1){
+  margin-right: 2em;
+}
+.project > .header :nth-child(2){
+  margin-left: 1em;
+  margin-right: 0.5em;
+}
+
+.project > .header :nth-child(3){
+  margin-left: 0.5em;
+}
+
 .list{
   margin-left: 0.5em;
 }
 
+.list > .header :nth-child(1){
+  margin-right: 2em;
+}
+.list > .header :nth-child(2){
+  margin-left: 0.6em;
+  margin-right: 0.5em;
+}
+
+.list > .header :nth-child(3){
+  margin-left: 0.4em;
+}
+
 .card{
   margin-left: 0.5em;
+}
+
+.card > .header :nth-child(1){
+  margin-right: 2em;
+}
+.card > .header :nth-child(2){
+  margin-left: 0.15em;
+  margin-right: 0.5em;
+}
+
+.card > .header :nth-child(3){
+  margin-left: 0.4em;
 }
 .card > .content{
   display: flex;
@@ -114,7 +152,7 @@ textarea{
   margin-bottom: 0.2em;
 }
 
-.card > .content > .check-list {
-  margin-top: 0em;
+.card > .content > .check-list :nth-child(3){
+  margin-right: 0.3em;
 }
 
