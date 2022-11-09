@@ -72,8 +72,15 @@ input{
   margin: 1em;
 }
 
-.card .content {
+.card > .content{
+  background-color: red;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: start;
+}
+
+.card > .content > *{
+  margin: 1em;
+  margin-bottom: 0.2em;
 }
