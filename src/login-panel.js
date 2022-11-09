@@ -73,9 +73,9 @@ export default class Login{
       document.getElementById('login-prompt').innerHTML = 'Please Login';
       return;
     }else{
-      localStorage.setItem(username, document.getElementById('pass').value);
+      localStorage.setItem(username.trim(), document.getElementById('pass').value);
       document.body.removeChild(this.div);
-      this.session = new Session(username);
+      this.session = new Session(username.trim());
       document.getElementById('logout').addEventListener('click', ()=>{
         this.logOut(); 
         this.render();
